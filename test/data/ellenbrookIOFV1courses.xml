@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CourseData xmlns="http://www.orienteering.org/datastandard/3.0"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            iofVersion="1.0"
+            createTime="2014-12-01T15:55:39"
+            creator="Condes version 9.0.17">
+
+	<Event>
+		<Name>Elllenbrook</Name>
+		<Comment>Invalid IOF version number</Comment>
+	</Event>
