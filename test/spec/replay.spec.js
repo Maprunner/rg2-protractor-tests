@@ -26,27 +26,25 @@ describe('RG2 replay', function() {
   var cbxShowReplay = element.all(by.css('.showreplay'));
   var cbxAllCourseReplay = element.all(by.css('.allcoursereplay'));
 
-  
   it('should select a Trent Park score event with a georeferenced map', function() {
     rg2.loadRG2();
     rg2.getEvent('135');
+    course.showCoursesTab();
   });
 
   it('should show the course for a score event', function() {
-    course.showCoursesTab();
     course.showCourse(0);
-    browser.sleep(1000);
-    course.showCourse(0);
-    browser.sleep(1000);
-    course.hideCourse(0);
-    browser.sleep(1000);
-    course.showCourse(0);
-    browser.sleep(1000);
-    //course.list.first().click();
-    //element.all(by.css('.allcourses')).first().click();
-    //element.all(by.css('.allcourses')).first().click();
   });
-/*
+
+  it('should hide the course for a score event', function() {
+    course.hideCourse(0);
+  });
+
+  it('should show and hide all courses for a score event', function() {
+    course.showAllCourses();
+    course.hideAllCourses();
+  });
+
   it('should show an individual course for a score event', function() {
   	result.showResultsTab();
   	// open result accordion
@@ -98,7 +96,7 @@ describe('RG2 replay', function() {
   });
 
   it('should display and hide tracks', function() {
-    result.list.first().click();
+    result.openResultsList(0);
     result.showTrack.get(1).click();
     expect(trackNames.isDisplayed()).toBe(true);
     result.showTrack.first().click();
@@ -216,5 +214,4 @@ describe('RG2 replay', function() {
   it('should load Splitsbrowser', function() {
     rg2.loadSplitsbrowser();
   });
-  */
 });

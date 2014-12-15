@@ -35,11 +35,11 @@ describe('RG2 Manager 1', function() {
 	it('should upload a non-georeferenced map', function() {
 	  element(by.id('rg2-map-name')).sendKeys('Ellenbrook protractor test map non-georef');
 
-	  element(by.id('rg2-load-map-file')).sendKeys('c:/xampp/htdocs/rg2-test-data/test/data/ellenbrook.xml');
+	  element(by.id('rg2-load-map-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/ellenbrook.xml');
  	  // invalid file type: error reported
 		rg2.acknowledgeWarning();
 	  
-	  element(by.id('rg2-load-map-file')).sendKeys('c:/xampp/htdocs/rg2-test-data/test/data/ellenbrook.jpg');
+	  element(by.id('rg2-load-map-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/ellenbrook.jpg');
 	  manager.addMapCancel();
 	  manager.addMap();
 		rg2.acknowledgeWarning("has been added");
@@ -81,23 +81,23 @@ describe('RG2 Manager 1', function() {
 
 	  element(by.id('rg2-event-comments')).sendKeys('IOF V2 course file, CSV results.not georeferenced');
 
-	  element(by.id('rg2-load-results-file')).sendKeys('c:/xampp/htdocs/rg2-test-data/test/data/highfield.jpg');
+	  element(by.id('rg2-load-results-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/highfield.jpg');
 	  // invalid file type: error reported
 		rg2.acknowledgeWarning("Results file type is not recognised");
 
-	  element(by.id('rg2-load-results-file')).sendKeys('c:/xampp/htdocs/rg2-test-data/test/data/ellenbrook.csv');
+	  element(by.id('rg2-load-results-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/ellenbrook.csv');
 	  // missing data: error reported
 	  btnCreateEvent.click();
 		rg2.acknowledgeWarning();
 
-	  element(by.id('rg2-load-course-file')).sendKeys('c:/xampp/htdocs/rg2-test-data/test/data/highfield.jpg');
+	  element(by.id('rg2-load-course-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/highfield.jpg');
 	  // invalid file type: error reported
 		rg2.acknowledgeWarning("File is not a valid XML event file");
 
-	  element(by.id('rg2-load-course-file')).sendKeys('c:/xampp/htdocs/rg2-test-data/test/data/ellenbrookIOFV1courses.xml');
+	  element(by.id('rg2-load-course-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/ellenbrookIOFV1courses.xml');
 		rg2.acknowledgeWarning('File is not a valid XML event file');
 	  
-	  element(by.id('rg2-load-course-file')).sendKeys('c:/xampp/htdocs/rg2-test-data/test/data/ellenbrookIOFV2courses.xml');
+	  element(by.id('rg2-load-course-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/ellenbrookIOFV2courses.xml');
 	  element(by.id('rg2-alloc-0')).all(by.css('option')).get(4).click();
 	  
     // move controls a bit

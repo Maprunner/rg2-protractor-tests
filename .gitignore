@@ -1,4 +1,5 @@
 node_modules
+instrumented
 test/coverage
 test/report
 test/rg2

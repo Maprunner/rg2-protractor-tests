@@ -33,12 +33,14 @@ var RG2Page = function() {
 	this.loadRG2 = function(hash) {
 		var url;
 		if (hash !== undefined) {
-			url = 'http://localhost/instrumented/rg2/' + hash;
+			url = 'http://localhost/rg2-protractor-tests/instrumented/rg2/' + hash;
 		} else {
-			url = 'http://localhost/instrumented/rg2/';
+			url = 'http://localhost/rg2-protractor-tests/instrumented/rg2/';
 		}
 		// not an angular app so need this
 		browser.ignoreSynchronization = true;
+		// shouldn't need this bit it seems to force a reload which sometimes doesn't happen if you just change the hash
+		browser.get('http://localhost');
 		browser.get(url);
   	browser.manage().window().setSize(1024, 768);
  		browser.sleep(1000);

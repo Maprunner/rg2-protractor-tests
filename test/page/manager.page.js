@@ -17,7 +17,7 @@ var ManagerPage = function() {
 		// not an angular app so need this
 		browser.ignoreSynchronization = true;
 
- 		browser.get('http://localhost/instrumented/rg2/?manage');
+ 		browser.get('http://localhost/rg2-protractor-tests/instrumented/rg2/?manage');
  		browser.sleep(500);
  		expect(this.loginBody.isDisplayed()).toBe(true);
 	};

@@ -13,9 +13,16 @@ describe('RG2 Manager 5', function() {
 
 	it('should upload a map in GIF format', function() {
   	manager.showMapTab();
+  	browser.sleep(2000);
 	  element(by.id('rg2-map-name')).sendKeys('London Colney protractor test');
-	  element(by.id('rg2-load-map-file')).sendKeys('c:/xampp/htdocs/rg2-test-data/test/data/londoncolney.gif');
+  	browser.sleep(2000);
+
+	  element(by.id('rg2-load-map-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/londoncolney.gif');
+  	browser.sleep(2000);
+
 	  manager.addMap();
+  	browser.sleep(5000);
+
 		rg2.acknowledgeWarning('has been added');
 	});
 	
