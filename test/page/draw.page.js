@@ -9,6 +9,8 @@ var DrawPage = function() {
 	this.dlgConfirmChangeCourse = element(by.css('.rg2-confirm-change-course'));
 	this.dlgConfirmDrawingReset =element(by.css('.rg2-confirm-drawing-reset'));
 	this.btnUndo = element(by.id('btn-undo'));
+	this.btnUndoGPSAdjust = element(by.id('btn-undo-gps-adjust'));
+	this.btnMoveAll = element(by.id('btn-move-all'));
 	this.btnThreeSeconds = element(by.id('btn-three-seconds'));
 	this.comments = element(by.id('rg2-new-comments'));
 	this.file = element(by.id('rg2-load-gps-file'));
@@ -24,6 +26,7 @@ var DrawPage = function() {
 	
 	this.loadGPSFile = function(file) {
 		  this.file.sendKeys(file);
+		  browser.sleep(1000);
 	};
 
 	this.cancelCourseChange = function () {
@@ -62,8 +65,17 @@ var DrawPage = function() {
 		this.btnUndo.click();
 	};
 
+	this.undoGPSAdjust = function () {
+		this.btnUndoGPSAdjust.click();
+	};
+
+	this.lockBackground = function () {
+		this.btnMoveAll.click();
+	};
+
 	this.saveGPSRoute = function () {
 		this.btnSaveGPSRoute.click();
+		browser.sleep(1000);
 	};
 	
 	this.waitThreeSeconds = function () {

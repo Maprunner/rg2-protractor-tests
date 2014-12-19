@@ -11,10 +11,10 @@ describe('RG2 Manager 3', function() {
   });
 
 	it('should upload a georeferenced map', function() {
-	  manager.showMapTab();	  
+	  manager.showMapTab();
 	  element(by.id('rg2-map-name')).sendKeys('Pwll Ddu protractor test map georef');
-	  element(by.id('rg2-load-map-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/pwllddu.jpg');
-	  element(by.id('rg2-load-georef-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/pwllddu.jgw');
+	  element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/pwllddu.jpg');
+	  element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/pwllddu.jgw');
 	  manager.addMap();
 		rg2.acknowledgeWarning();
 	});
@@ -22,6 +22,9 @@ describe('RG2 Manager 3', function() {
 	it('should create Event 3: CSV results: IOF V3 relay courses: georef', function() {
   	manager.showCreateTab();
     element(by.id('rg2-event-name')).sendKeys('Event 3: Pwll Ddu');
+    // select invalid map id
+	  element(by.id('rg2-map-selected')).all(by.css('option')).get(0).click();
+	  // select valid map id
 	  element(by.id('rg2-map-selected')).all(by.css('option')).get(1).click();
     element(by.id('rg2-club-name')).sendKeys('HH');
     element(by.id('rg2-event-date')).sendKeys('2014-12-01');
@@ -29,8 +32,8 @@ describe('RG2 Manager 3', function() {
     element(by.id('rg2-event-level')).all(by.css('option')).get(4).click();
     btnScoreEvent.click();
 	  element(by.id('rg2-event-comments')).sendKeys('IOF V3 relay course file, CSV results, georeferenced');
-	  element(by.id('rg2-load-course-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/pwlldduIOFV3relay.xml');
-	  element(by.id('rg2-load-results-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/pwllddu.csv');
+	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/pwlldduIOFV3relay.xml');
+	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/pwllddu.csv');
 		manager.createEvent();
 		rg2.acknowledgeWarning();
 	});

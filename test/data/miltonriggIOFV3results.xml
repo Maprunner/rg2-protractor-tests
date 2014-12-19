@@ -3951,6 +3951,8 @@
     </PersonResult>
     <PersonResult>
       <Person sex="M">
+      	<Id>99
+      		</Id>
         <Name>
           <Family>Hadry</Family>
           <Given>Archie</Given>
@@ -3961,8 +3963,8 @@
         <Name />
       </Organisation>
       <Result>
-        <StartTime>2014-01-18T11:21:45</StartTime>
-        <FinishTime>2014-01-18T11:34:54</FinishTime>
+        <StartTime>2014-01-18T11:21</StartTime>
+        <FinishTime>2014-01-18T11:34</FinishTime>
         <Time>789</Time>
         <Position>3</Position>
         <Status>OK</Status>
@@ -4002,27 +4004,19 @@
     </PersonResult>
     <PersonResult>
       <Person sex="M">
+      	<Id>100</Id>
         <Name>
           <Family>Hartley</Family>
           <Given>Thomas</Given>
         </Name>
         <BirthDate>2013-01-01</BirthDate>
       </Person>
-      <Organisation>
-        <Name>BL</Name>
-      </Organisation>
       <Result>
-        <StartTime>2014-01-18T11:47:20</StartTime>
-        <FinishTime>2014-01-18T12:24:41</FinishTime>
-        <Time>2241</Time>
         <Position>4</Position>
-        <Status>OK</Status>
         <SplitTime>
           <ControlCode>115</ControlCode>
-          <Time>188</Time>
         </SplitTime>
         <SplitTime>
-          <ControlCode>125</ControlCode>
           <Time>518</Time>
         </SplitTime>
         <SplitTime>

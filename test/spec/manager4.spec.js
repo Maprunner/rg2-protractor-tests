@@ -7,7 +7,7 @@ describe('RG2 Manager 4', function() {
  		manager.login();
   });
   
-	it('should create Event 4A: IOF V2 results: IOF V3 courses: not georef', function() {
+	it('should report invalid results file type', function() {
   	manager.showCreateTab();
     element(by.id('rg2-event-name')).sendKeys('Event 4A: Ellenbrook with Milton Rigg results');
 	  element(by.id('rg2-map-selected')).all(by.css('option')).get(2).click();
@@ -16,10 +16,23 @@ describe('RG2 Manager 4', function() {
     element(by.id('rg2-event-date')).sendKeys(protractor.Key.ENTER);
     element(by.id('rg2-event-level')).all(by.css('option')).get(4).click();
     element(by.id('rg2-event-comments')).sendKeys('IOF V3 course file, IOF V2 results, not georeferenced');
-	  element(by.id('rg2-load-course-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/miltonriggIOFV3courses.xml');
-	  element(by.id('rg2-load-results-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/miltonriggIOFV1results.xml');
+	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV3courses.xml');
+	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/verulamium.gpx');
+		rg2.acknowledgeWarning('Results file type is not recognised');
+	});
+	
+	it('should report invalid results file version', function() {
+	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV1results.xml');
 		rg2.acknowledgeWarning('Invalid IOF file format');
-	  element(by.id('rg2-load-results-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/miltonriggIOFV2results.xml');
+	});
+
+	it('should report results XML parse error', function() {
+	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/IOFV2resultsparseerror.xml');
+		rg2.acknowledgeWarning('Error processing XML file');
+	});
+
+	it('should create Event 4A: IOF V2 results: IOF V3 courses: not georef', function() {
+	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV2results.xml');
 		manager.createEvent();
 		rg2.acknowledgeWarning('has been added');
 	});
@@ -33,8 +46,10 @@ describe('RG2 Manager 4', function() {
     element(by.id('rg2-event-date')).sendKeys(protractor.Key.ENTER);
     element(by.id('rg2-event-level')).all(by.css('option')).get(4).click();
     element(by.id('rg2-event-comments')).clear().sendKeys('IOF V3 course file, IOF V3 results, not georeferenced');
-	  element(by.id('rg2-load-course-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/miltonriggIOFV3courses.xml');
-	  element(by.id('rg2-load-results-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/miltonriggIOFV3results.xml');
+	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV3courses.xml');
+	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/IOFV3resultsparseerror.xml');
+		rg2.acknowledgeWarning('Error processing XML file');
+	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV3results.xml');
 		manager.createEvent();
 		rg2.acknowledgeWarning('has been added');
 	});

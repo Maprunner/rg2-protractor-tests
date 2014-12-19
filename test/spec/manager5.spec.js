@@ -17,7 +17,7 @@ describe('RG2 Manager 5', function() {
 	  element(by.id('rg2-map-name')).sendKeys('London Colney protractor test');
   	browser.sleep(2000);
 
-	  element(by.id('rg2-load-map-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/londoncolney.gif');
+	  element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/londoncolney.gif');
   	browser.sleep(2000);
 
 	  manager.addMap();

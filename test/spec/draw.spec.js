@@ -40,6 +40,7 @@ describe('RG2 draw', function() {
  		rg2.getEvent('102');
     draw.showDrawTab();
   });
+
   
    it('should allow you to start drawing a score course route', function() {
     draw.courses.get(1).click();
@@ -47,6 +48,11 @@ describe('RG2 draw', function() {
     draw.addComment('Verulamium score draw test');
     // add first point
     browser.actions().click(rg2.map).perform();
+  });
+    
+  it('should allow you change tabs when drawing a route', function() {
+    rg2.showEventsTab();
+    draw.showDrawTab();
   });
 
   it('should allow you to reset everything', function() {
@@ -61,15 +67,13 @@ describe('RG2 draw', function() {
   
    it('should allow you to add a result and draw a route', function() {
     draw.courses.get(1).click();
-    browser.sleep(2000);
-
     draw.enterName('');
-    draw.enterName('Hertford test runner');
-    browser.sleep(2000);
-
+    draw.enterName('Hertford test runner 1');
+    // clear out name
+    draw.enterName('');
+    // enter name again
+    draw.enterName('Hertford test runner 2');
     draw.enterTime('12.34');
-    browser.sleep(2000);
-
     draw.addComment('No results Hertford draw test');
     // add first point
     browser.actions().click(rg2.map).perform();

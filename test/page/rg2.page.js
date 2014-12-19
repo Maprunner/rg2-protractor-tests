@@ -28,7 +28,8 @@ var RG2Page = function() {
 	this.GPSspeed = element(by.id('chk-show-GPS-speed'));
 	this.threeSeconds = element(by.id('chk-show-three-seconds'));
 	this.snapToggle = element(by.id('chk-snap-toggle'));
-	this.splitsbrowser = element(by.id('rg2-splitsbrowser')); 
+	this.splitsbrowser = element(by.id('rg2-splitsbrowser'));
+	this.dir = 'c:/xampp/htdocs/rg2-protractor-tests';
 			
 	this.loadRG2 = function(hash) {
 		var url;

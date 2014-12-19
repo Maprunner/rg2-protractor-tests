@@ -18,8 +18,9 @@ describe('RG2 Manager 2', function() {
 	it('should upload a georeferenced map', function() {
 		manager.showMapTab();
 	  element(by.id('rg2-map-name')).sendKeys('Ellenbrook protractor test map georef');
-	  element(by.id('rg2-load-map-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/ellenbrook.jpg');
-	  element(by.id('rg2-load-georef-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/ellenbrook.jgw');
+	  element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jpg');
+	  element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/ellenbrookinvalid.jgw');
+	  element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jgw');
 	  manager.addMap();
 		rg2.acknowledgeWarning("has been added");
 	});
@@ -33,14 +34,14 @@ describe('RG2 Manager 2', function() {
     element(by.id('rg2-event-date')).sendKeys(protractor.Key.ENTER);
     element(by.id('rg2-event-level')).all(by.css('option')).get(4).click();
 	  element(by.id('rg2-event-comments')).sendKeys('IOF V3 course file, CSV results, georeferenced');
-	  element(by.id('rg2-load-course-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/ellenbrookIOFV3courses.xml');
+	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV3courses.xml');
 	  // missing data: error reported
 	  btnCreateEvent.click();
-		rg2.acknowledgeWarning();
+		rg2.acknowledgeWarning("No results information");
 		// read spklasse results
-	  element(by.id('rg2-load-results-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/spklasse.csv');
+	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/spklasse.csv');
 		// change to SI csv results
-	  element(by.id('rg2-load-results-file')).sendKeys('c:/xampp/htdocs/rg2-protractor-tests/test/data/ellenbrook.csv');
+	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.csv');
 	  element(by.id('rg2-alloc-0')).all(by.css('option')).get(4).click();
 		manager.createEvent();
 		rg2.acknowledgeWarning('has been added');
