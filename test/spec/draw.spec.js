@@ -3,8 +3,8 @@ describe('RG2 draw', function() {
 	var draw = require('../page/draw.page.js');
 	var course = require('../page/draw.page.js');
 		 
-	it('should load a Verulamium event and show the draw tab', function() {
- 		rg2.loadRG2('#1');
+	it('should load a Mardley event and show the draw tab', function() {
+ 		rg2.loadRG2('#157');
     draw.showDrawTab();
   });
 

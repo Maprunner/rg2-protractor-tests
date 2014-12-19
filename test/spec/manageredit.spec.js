@@ -8,7 +8,7 @@ describe('RG2 Manager Edit', function() {
   var dlgConfirmCreateEvent = element(by.css('.rg2-confirm-create-event-dialog'));
   var dlgConfirmEditEvent = element(by.css('.rg2-confirm-update-dialog'));
   var dlgConfirmDeleteEvent = element(by.css('.rg2-confirm-delete-event-dialog'));
-  var dlgConfirmDeleteRoute = element(by.css('.rg2-confirm-delete-route-dialog'));
+  var dlgConfirmDeleteRoute = element(by.css('.rg2-confirm-route-delete-dialog'));
   
   it('should allow you to log on as manager', function() {
  		manager.startManager();
@@ -29,7 +29,7 @@ describe('RG2 Manager Edit', function() {
 	  btnUpdateEvent.click();
   	dlgConfirmEditEvent.element(by.buttonText('Update event')).click();
 	  browser.sleep(1000);
-		rg2.acknowledgeWarning();
+		rg2.acknowledgeWarning("has been updated");
 
 	});
 
@@ -40,11 +40,12 @@ describe('RG2 Manager Edit', function() {
 	  btnDeleteEvent.click();
   	dlgConfirmDeleteEvent.element(by.buttonText('Delete event')).click();
 	  browser.sleep(1000);
-		rg2.acknowledgeWarning();
+		rg2.acknowledgeWarning("has been deleted");
 	});
-/*
+
 	it('should delete a route', function() {
 	  element(by.id('rg2-event-selected')).all(by.css('option')).last().click();
+	  browser.sleep(1000);
 	  element(by.id('rg2-route-selected')).all(by.css('option')).first().click();
 	  btnDeleteRoute.click();
   	dlgConfirmDeleteRoute.element(by.buttonText('Cancel')).click();
@@ -53,5 +54,5 @@ describe('RG2 Manager Edit', function() {
 	  browser.sleep(1000);
 		rg2.acknowledgeWarning();
 	});
-	*/
+
 });

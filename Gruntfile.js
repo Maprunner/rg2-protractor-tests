@@ -5,6 +5,15 @@ module.exports = function(grunt) {
   var jsDoNotInstrumentList = ['../rg2/rg2api.php', '../rg2/index.php', '../rg2/js/plugins.js', '../rg2/js/lib/he.js', '../rg2/js/lib/proj4js-compressed.js', '../rg2/lang/*.txt',
     '../rg2/html/*.html', '../rg2/css/*.css', '../rg2/lang/*.txt', '../rg2/img/*.*'];
   
+  var kartatFiles = ['../rg2-test-data/hh/kartat/kisat.txt',
+  										'../rg2-test-data/hh/kartat/kartat.txt',
+  										'../rg2-test-data/hh/kartat/*_157.txt', '../rg2-test-data/hh/kartat/*_165.jpg',
+  										'../rg2-test-data/hh/kartat/*_155.txt', '../rg2-test-data/hh/kartat/*_163.jpg',
+  										'../rg2-test-data/hh/kartat/*_153.txt', '../rg2-test-data/hh/kartat/*_161.jpg',
+  										'../rg2-test-data/hh/kartat/*_128.txt', '../rg2-test-data/hh/kartat/*_125.jpg',
+  										'../rg2-test-data/hh/kartat/*_110.txt', '../rg2-test-data/hh/kartat/*_111.jpg'
+  										];
+  
   // Project configuration.
   grunt.initConfig({
     pkg : grunt.file.readJSON('package.json'),
@@ -12,7 +21,8 @@ module.exports = function(grunt) {
    clean: {
 			tests: [
 			'test/coverage', 
-			'test/report'],
+			'test/report',
+			'kartat']
 		},
 
     connect: {
@@ -27,13 +37,19 @@ module.exports = function(grunt) {
     	rg2Source : {
         src : jsDoNotInstrumentList,
         dest : 'instrumented/rg2/'
-     },
+       },
     	config : {
         src : 'test/config/*.php',
         dest : 'instrumented/rg2',
         expand: true,
         flatten: true
-     }
+       },
+    	kartat : {
+        src : kartatFiles,
+        dest : 'kartat/',
+        expand: true,
+        flatten: true
+      }
     },
 
     instrument: {
@@ -75,6 +91,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['test']);
 
-  grunt.registerTask('test', ['clean:tests', 'instrument', 'sync:rg2Source', 'sync:config', 'connect', 'protractor_coverage:rg2', 'makeReport']);
+  grunt.registerTask('test', ['clean:tests', 'instrument', 'sync:rg2Source', 'sync:config', 'sync:kartat', 'connect', 'protractor_coverage:rg2', 'makeReport']);
 
 };

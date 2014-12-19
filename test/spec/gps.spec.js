@@ -55,7 +55,7 @@ describe('RG2 GPS', function() {
     draw.courses.get(1).click();
     draw.names.get(2).click();
     draw.addComment('Second GPS result test');
-	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.tcx');
+	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.gpx');
 	  draw.saveGPSRoute();
 		rg2.acknowledgeWarning("Your route has been saved");
   });
@@ -69,7 +69,7 @@ describe('RG2 GPS', function() {
     draw.courses.get(1).click();
     draw.names.get(1).click();
     draw.addComment('Protractor test comment');
-	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.gpx');
+	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.tcx');
 	  draw.saveGPSRoute();
 		rg2.acknowledgeWarning("Your route has been saved");
   });
