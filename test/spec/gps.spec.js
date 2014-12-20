@@ -99,7 +99,7 @@ describe('RG2 GPS', function() {
 
   it('should select a Verulamium score event', function() {
     rg2.loadRG2();
-    rg2.getEvent('102');
+    rg2.getEvent('103');
     draw.showDrawTab();
   });
   

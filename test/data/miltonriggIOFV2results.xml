@@ -4678,47 +4678,7 @@
         <CountryId value="other" />
       </Club>
       <Result>
-        <CCard>
-          <CCardId>13533</CCardId>
-          <PunchingUnitType value="SI" />
-        </CCard>
-        <StartTime>
-          <Clock>12:01:51</Clock>
-        </StartTime>
-        <FinishTime>
-          <Clock>12:57:28</Clock>
-        </FinishTime>
-        <Time timeFormat="MMM:SS">55:37</Time>
-        <ResultPosition>21st</ResultPosition>
-        <CompetitorStatus value="OK" />
-        <SplitTime sequence="1">
-          <ControlCode>115</ControlCode>
-          <Time timeFormat="MMM:SS">2:31</Time>
-        </SplitTime>
-        <SplitTime sequence="2">
-          <ControlCode>101</ControlCode>
-          <Time timeFormat="MMM:SS">8:38</Time>
-        </SplitTime>
-        <SplitTime sequence="3">
-          <ControlCode>113</ControlCode>
-          <Time timeFormat="MMM:SS">20:20</Time>
-        </SplitTime>
-        <SplitTime sequence="4">
-          <ControlCode>102</ControlCode>
-          <Time timeFormat="MMM:SS">25:08</Time>
-        </SplitTime>
-        <SplitTime sequence="5">
-          <ControlCode>103</ControlCode>
-          <Time timeFormat="MMM:SS">30:55</Time>
-        </SplitTime>
-        <SplitTime sequence="6">
-          <ControlCode>106</ControlCode>
-          <Time timeFormat="MMM:SS">34:02</Time>
-        </SplitTime>
-        <SplitTime sequence="7">
-          <ControlCode>104</ControlCode>
-          <Time timeFormat="MMM:SS">50:12</Time>
-        </SplitTime>
+        <CompetitorStatus value="DidNotStart" />
       </Result>
     </PersonResult>
   </ClassResult>
@@ -5011,25 +4971,14 @@
       </Club>
       <Result>
         <CCard>
-          <CCardId>202142</CCardId>
           <PunchingUnitType value="SI" />
         </CCard>
-        <StartTime>
-          <Clock>11:47:20</Clock>
-        </StartTime>
-        <FinishTime>
-          <Clock>12:24:41</Clock>
-        </FinishTime>
         <Time timeFormat="MMM:SS">37:21</Time>
-        <ResultPosition>4th</ResultPosition>
-        <CompetitorStatus value="OK" />
         <SplitTime sequence="1">
-          <ControlCode>115</ControlCode>
           <Time timeFormat="MMM:SS">3:08</Time>
         </SplitTime>
         <SplitTime sequence="2">
           <ControlCode>125</ControlCode>
-          <Time timeFormat="MMM:SS">8:38</Time>
         </SplitTime>
         <SplitTime sequence="3">
           <ControlCode>123</ControlCode>

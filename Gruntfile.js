@@ -7,11 +7,15 @@ module.exports = function(grunt) {
   
   var kartatFiles = ['../rg2-test-data/hh/kartat/kisat.txt',
   										'../rg2-test-data/hh/kartat/kartat.txt',
-  										'../rg2-test-data/hh/kartat/*_157.txt', '../rg2-test-data/hh/kartat/*_165.jpg',
-  										'../rg2-test-data/hh/kartat/*_155.txt', '../rg2-test-data/hh/kartat/*_163.jpg',
-  										'../rg2-test-data/hh/kartat/*_153.txt', '../rg2-test-data/hh/kartat/*_161.jpg',
-  										'../rg2-test-data/hh/kartat/*_128.txt', '../rg2-test-data/hh/kartat/*_125.jpg',
-  										'../rg2-test-data/hh/kartat/*_110.txt', '../rg2-test-data/hh/kartat/*_111.jpg'
+  										'../rg2-test-data/hh/kartat/*_172.txt', '../rg2-test-data/hh/kartat/181.jpg',
+  										'../rg2-test-data/hh/kartat/*_168.txt', '../rg2-test-data/hh/kartat/177.jpg',
+  										'../rg2-test-data/hh/kartat/*_157.txt', '../rg2-test-data/hh/kartat/165.jpg',
+  										'../rg2-test-data/hh/kartat/*_155.txt', '../rg2-test-data/hh/kartat/163.jpg',
+  										'../rg2-test-data/hh/kartat/*_153.txt', '../rg2-test-data/hh/kartat/161.jpg',
+  										'../rg2-test-data/hh/kartat/*_128.txt', '../rg2-test-data/hh/kartat/125.jpg',
+  										'../rg2-test-data/hh/kartat/*_110.txt', '../rg2-test-data/hh/kartat/111.jpg',
+  										'../rg2-test-data/hh/kartat/*_72.txt', '../rg2-test-data/hh/kartat/72.jpg',
+  										'../rg2-test-data/hh/kartat/*_1.txt', '../rg2-test-data/hh/kartat/1.jpg'
   										];
   
   // Project configuration.

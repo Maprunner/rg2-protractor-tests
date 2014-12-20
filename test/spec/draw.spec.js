@@ -37,7 +37,7 @@ describe('RG2 draw', function() {
   });
 
 	it('should allow you to load a Verulamium score course', function() {
- 		rg2.getEvent('102');
+ 		rg2.getEvent('103');
     draw.showDrawTab();
   });
 
