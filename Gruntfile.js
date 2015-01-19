@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   var jsInstrumentList = ['../rg2/js/rg2.js', '../rg2/js/animation.js', '../rg2/js/controls.js', '../rg2/js/courses.js', '../rg2/js/draw.js', '../rg2/js/events.js', '../rg2/js/gpstrack.js',
    '../rg2/js/results.js', '../rg2/js/runner.js', '../rg2/js/manager.js'];
    
-  var jsDoNotInstrumentList = ['../rg2/rg2api.php', '../rg2/index.php', '../rg2/js/plugins.js', '../rg2/js/lib/he.js', '../rg2/js/lib/proj4js-compressed.js', '../rg2/lang/*.txt',
+  var jsDoNotInstrumentList = ['../rg2/rg2api.php', '../rg2/index.php', '../rg2/js/plugins.js', '../rg2/js/lib/he.js', '../rg2/js/lib/proj4js-compressed.js',
     '../rg2/html/*.html', '../rg2/css/*.css', '../rg2/lang/*.txt', '../rg2/img/*.*'];
   
   var kartatFiles = ['../rg2-test-data/hh/kartat/kisat.txt',
@@ -26,7 +26,9 @@ module.exports = function(grunt) {
 			tests: [
 			'test/coverage', 
 			'test/report',
-			'kartat']
+			'kartat'],
+			instrumented: [
+			'instrumented/*.js']
 		},
 
     connect: {
@@ -95,6 +97,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['test']);
 
-  grunt.registerTask('test', ['clean:tests', 'instrument', 'sync:rg2Source', 'sync:config', 'sync:kartat', 'connect', 'protractor_coverage:rg2', 'makeReport']);
+  grunt.registerTask('test', ['clean:tests', 'clean:instrumented', 'instrument', 'sync:rg2Source', 'sync:config', 'sync:kartat', 'connect', 'protractor_coverage:rg2', 'makeReport']);
 
 };
