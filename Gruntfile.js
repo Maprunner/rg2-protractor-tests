@@ -15,7 +15,8 @@ module.exports = function(grunt) {
   										'../rg2-test-data/hh/kartat/*_128.txt', '../rg2-test-data/hh/kartat/125.jpg',
   										'../rg2-test-data/hh/kartat/*_110.txt', '../rg2-test-data/hh/kartat/111.jpg',
   										'../rg2-test-data/hh/kartat/*_72.txt', '../rg2-test-data/hh/kartat/72.jpg',
-  										'../rg2-test-data/hh/kartat/*_1.txt', '../rg2-test-data/hh/kartat/1.jpg'
+  										'../rg2-test-data/hh/kartat/*_1.txt', '../rg2-test-data/hh/kartat/1.jpg',
+  										'test/data/rg2userinfo.txt'
   										];
   
   // Project configuration.

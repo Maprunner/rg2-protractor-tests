@@ -95,6 +95,8 @@ describe('RG2', function() {
   	rg2.loadRG2('#128&course=4&route=48,74');
   });
 
+
+
   it('should show the configuration dialog', function() {
 		rg2.showOptionsDialog();
   });
@@ -165,5 +167,14 @@ describe('RG2', function() {
 		rg2.hideOptionsDialog();
   });
 
+  it('should allow the window to be resized', function() {
+  	rg2.checkTitle('Highfield Park Saturday League 2013-06-01');
+  	browser.manage().window().setSize(750, 500);
+ 		rg2.checkTitle('Highfield Park Saturday League');
+ 		browser.manage().window().setSize(480, 360);
+  	rg2.checkTitle('');
+  	browser.manage().window().setSize(1024, 768);
+  	rg2.checkTitle('Highfield Park Saturday League 2013-06-01');
+  });
   
 });

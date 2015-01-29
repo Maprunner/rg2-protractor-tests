@@ -30,6 +30,7 @@ var RG2Page = function() {
 	this.snapToggle = element(by.id('chk-snap-toggle'));
 	this.splitsbrowser = element(by.id('rg2-splitsbrowser'));
 	this.dir = 'c:/xampp/htdocs/rg2-protractor-tests';
+	this.eventTitle = element(by.id('rg2-event-title'));
 			
 	this.loadRG2 = function(hash) {
 		var url;
@@ -51,6 +52,15 @@ var RG2Page = function() {
  		};
 	};
 
+	this.checkTitle = function(title) {
+		if (title) {
+			expect(this.eventTitle.getText()).toEqual(title);
+			expect(this.eventTitle.isDisplayed()).toBe(true);
+		} else {
+			expect(this.eventTitle.isDisplayed()).toBe(false);
+		}
+	};
+	
 	this.acknowledgeWarning = function(text) {
 		expect(this.dlgWarning.isDisplayed()).toBe(true);
 		if (text) {

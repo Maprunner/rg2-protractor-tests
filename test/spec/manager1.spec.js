@@ -86,18 +86,23 @@ describe('RG2 Manager 1', function() {
 		rg2.acknowledgeWarning("Results file type is not recognised");
 
 	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.csv');
+		manager.acknowledgeResultInfo();
+		
 	  // missing data: error reported
 	  btnCreateEvent.click();
 		rg2.acknowledgeWarning();
 
 	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/highfield.jpg');
 	  // invalid file type: error reported
-		rg2.acknowledgeWarning("File is not a valid XML event file");
+		rg2.acknowledgeWarning("File is not a valid XML course file");
 
 	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV1courses.xml');
-		rg2.acknowledgeWarning('File is not a valid XML event file');
+		rg2.acknowledgeWarning('File is not a valid XML course file');
 	  
 	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV2courses.xml');
+		manager.acknowledgeCourseInfo();
+
+		// map results to courses
 	  element(by.id('rg2-alloc-0')).all(by.css('option')).get(4).click();
 	  
     // move controls a bit

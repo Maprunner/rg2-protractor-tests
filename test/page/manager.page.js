@@ -11,6 +11,8 @@ var ManagerPage = function() {
 	this.dlgConfirmCreateEvent = element(by.css('.rg2-confirm-create-event-dialog'));
 	this.btnCreateEvent = element(by.id('btn-create-event'));
 	this.dlgConfirmAddMap = element(by.css('.rg2-confirm-add-map-dialog'));
+	this.dlgResultInfo = element(by.css('.rg2-result-info-dialog'));
+	this.dlgCourseInfo = element(by.css('.rg2-course-info-dialog'));
 	this.btnAddMap = element(by.id('btn-add-map'));
 		
 	this.startManager = function() {
@@ -58,8 +60,20 @@ var ManagerPage = function() {
 	};
 
 	this.addMapCancel = function () {
-	  this.btnAddMap.click();
-  	this.dlgConfirmAddMap.element(by.buttonText('Cancel')).click();
+		this.btnAddMap.click();
+		this.dlgConfirmAddMap.element(by.buttonText('Cancel')).click();
+	};
+	
+	this.acknowledgeResultInfo = function() {
+		expect(this.dlgResultInfo.isDisplayed()).toBe(true);
+		this.dlgResultInfo.element(by.buttonText('Ok')).click();
+		expect(this.dlgResultInfo.isDisplayed()).toBe(false);
+	};
+
+	this.acknowledgeCourseInfo = function() {
+		expect(this.dlgCourseInfo.isDisplayed()).toBe(true);
+		this.dlgCourseInfo.element(by.buttonText('Ok')).click();
+		expect(this.dlgCourseInfo.isDisplayed()).toBe(false);
 	};
 	
 	this.showMapTab = function() {

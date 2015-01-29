@@ -4,7 +4,6 @@ describe('RG2 Manager 3', function() {
 	
   var btnScoreEvent = element(by.id('btn-score-event'));
 
-  // not an angular app so need this
   it('should allow you to log on as manager', function() {
  		manager.startManager();
  		manager.login();
@@ -33,7 +32,9 @@ describe('RG2 Manager 3', function() {
     btnScoreEvent.click();
 	  element(by.id('rg2-event-comments')).sendKeys('IOF V3 relay course file, CSV results, georeferenced');
 	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/pwlldduIOFV3relay.xml');
+	  manager.acknowledgeCourseInfo();
 	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/pwllddu.csv');
+	  manager.acknowledgeResultInfo();
 		manager.createEvent();
 		rg2.acknowledgeWarning();
 	});
