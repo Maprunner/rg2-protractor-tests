@@ -76,7 +76,7 @@ describe('RG2 GPS', function() {
   
   it('should warn you if the GPX file does not match the map location', function() {
     draw.courses.get(2).click();
-    draw.names.get(2).click();
+    draw.names.get(6).click();
     draw.addComment('Protractor test comment');
 	  draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
 		rg2.acknowledgeWarning("Your GPS file does not match the map");
