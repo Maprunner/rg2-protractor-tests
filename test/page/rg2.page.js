@@ -31,7 +31,8 @@ var RG2Page = function() {
 	this.splitsbrowser = element(by.id('rg2-splitsbrowser'));
 	this.dir = 'c:/xampp/htdocs/rg2-protractor-tests';
 	this.eventTitle = element(by.id('rg2-event-title'));
-			
+  this.eventlist = element(by.id('rg2-event-list')).all(by.css('li'));
+
 	this.loadRG2 = function(hash) {
 		var url;
 		if (hash !== undefined) {
@@ -81,13 +82,19 @@ var RG2Page = function() {
     browser.sleep(1000);
 	};
 
+  this.getNewestEvent = function() {
+    this.showEventsTab();
+    this.eventlist.first().click();
+    browser.sleep(1000);
+  };
+
 	this.showEventsTab = function() {
 		this.eventsTab.element(by.id('ui-id-1')).click();
 		expect(this.body.isDisplayed()).toBe(true);
 	};
 
 	this.showAboutDialog = function() {
-    expect(this.aboutDialog.isDisplayed()).toBe(false);   
+    expect(this.aboutDialog.isDisplayed()).toBe(false);
     this.btnAbout.click();
     expect(this.aboutDialog.isDisplayed()).toBe(true);
     expect(element(by.css('.rg2-about-dialog')).element(by.css('.ui-dialog-title')).getText()).toContain('RG2 Version');

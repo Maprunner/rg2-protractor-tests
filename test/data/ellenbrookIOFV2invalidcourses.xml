@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE CourseData SYSTEM "iofData.dtd">
 
-<CourseData>
-	<IOFVersion version="1.0.0" />
+<InvalidCourseData>
+	<IOFVersion version="2.0.3" />
 
 	<ModifyDate>
 		<Date dateformat="YYYY-MM-SS">2014-09-08</Date>
@@ -482,4 +482,4 @@
 		</CourseVariation>
 	</Course>
 
-</CourseData>
+</InvalidCourseData>

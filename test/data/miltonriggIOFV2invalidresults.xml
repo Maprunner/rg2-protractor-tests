@@ -1,4 +1,4 @@
-<ResultList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="IOFData.xsd">
+<InvalidResultList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="IOFData.xsd">
   <IOFVersion version="2.0.3" />
   <Event eventForm="IndSingleDay">
     <EventId>991a34eb-7527-4173-b8ff-a4edb2969745</EventId>
@@ -32,6 +32,7 @@
       <Club>
         <ClubId>
         </ClubId>
+        <ShortName>BL</ShortName>
         <CountryId value="GBR" />
       </Club>
       <Result>
@@ -5006,4 +5007,4 @@
       </Result>
     </PersonResult>
   </ClassResult>
-</ResultList>
+</InvalidResultList>

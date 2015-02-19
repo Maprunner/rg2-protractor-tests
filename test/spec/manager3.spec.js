@@ -15,7 +15,7 @@ describe('RG2 Manager 3', function() {
 	  element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/pwllddu.jpg');
 	  element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/pwllddu.jgw');
 	  manager.addMap();
-		rg2.acknowledgeWarning();
+		rg2.acknowledgeWarning("has been added");
 	});
 
 	it('should create Event 3: CSV results: IOF V3 relay courses: georef', function() {
@@ -36,7 +36,7 @@ describe('RG2 Manager 3', function() {
 	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/pwllddu.csv');
 	  manager.acknowledgeResultInfo();
 		manager.createEvent();
-		rg2.acknowledgeWarning();
+		rg2.acknowledgeWarning("has been added");
 	});
 
 });

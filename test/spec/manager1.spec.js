@@ -97,7 +97,10 @@ describe('RG2 Manager 1', function() {
 		rg2.acknowledgeWarning("File is not a valid XML course file");
 
 	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV1courses.xml');
-		rg2.acknowledgeWarning('File is not a valid XML course file');
+		rg2.acknowledgeWarning('Invalid IOF file format. Version 1.0.0 not supported.');
+
+    element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV2invalidcourses.xml');
+    rg2.acknowledgeWarning('CourseData element missing.');
 	  
 	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV2courses.xml');
 		manager.acknowledgeCourseInfo();

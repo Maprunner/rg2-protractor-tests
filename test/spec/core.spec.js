@@ -1,18 +1,28 @@
 describe('RG2', function() {
 	var rg2 = require('../page/rg2.page.js');
 	var course = require('../page/course.page.js');
-
+  var result = require('../page/result.page.js');
   var cbxTrackList = element.all(by.css('.tracklist'));
   var cbxShowTrack = element.all(by.css('.showtrack'));
   var cbxShowReplay = element.all(by.css('.showreplay'));
   var cbxShowScoreCourse = element.all(by.css('.showscorecourse'));
-    
+  
   it('should load RG2', function() {
   	rg2.loadRG2();
   });
-   
+
+  it('should show and hide the about dialog with no event selected', function() {
+    rg2.showAboutDialog();
+    expect(element(by.id('rg2-about-dialog')).getText()).toContain('Routegadget 2 (RG2)');
+    expect(element(by.id('rg2-about-dialog')).getText()).not.toContain('Event statistics');
+    rg2.hideAboutDialog();
+  });
+
   it('should select a Mardley Heath normal event', function() {
     rg2.getEvent('143');
+    rg2.showAboutDialog();
+    expect(element(by.id('rg2-event-stats')).getText()).toContain('SEOA Middle Champs: Mardley Heath: 2014-04-27');
+    rg2.hideAboutDialog();
   });
 
   it('should toggle controls on and off', function() {
@@ -28,11 +38,6 @@ describe('RG2', function() {
     rg2.resizeShowInfoPanel();
   });
   
-  it('should show and hide the about dialog', function() {    
-    rg2.showAboutDialog();
-    rg2.hideAboutDialog();
-  });
-
   it('should zoom in and out', function() {
     rg2.zoomIn();
     rg2.zoomIn();
@@ -93,9 +98,8 @@ describe('RG2', function() {
 
   it('should load a Highfield event and show a course and route', function() {
   	rg2.loadRG2('#128&course=4&route=48,74');
+    expect(rg2.trackNames.isDisplayed()).toBe(true);
   });
-
-
 
   it('should show the configuration dialog', function() {
 		rg2.showOptionsDialog();
@@ -176,5 +180,24 @@ describe('RG2', function() {
   	browser.manage().window().setSize(1024, 768);
   	rg2.checkTitle('Highfield Park Saturday League 2013-06-01');
   });
-  
+
+  it('should start up in Norwegian', function() {
+    rg2.loadRG2("?lang=no");
+    rg2.showOptionsDialog();
+    expect(element(by.css('.rg2-options-dialog')).element(by.css('.ui-dialog-title')).getText()).toEqual('Brukervalg');
+  });
+
+  it('should select a Trent Park score event', function() {
+    rg2.getEvent('135');
+    rg2.showAboutDialog();
+    expect(element(by.id('rg2-event-stats')).getText()).toContain('Boxing Day Score: Trent Park: 2013-12-26');
+    rg2.hideAboutDialog();
+  });
+
+  it('should show an individual score course', function() {
+    result.showResultsTab();
+    result.openResultsList(0);
+    expect(rg2.trackNames.isDisplayed()).toBe(false);
+    cbxShowScoreCourse.first().click();
+  });
 });

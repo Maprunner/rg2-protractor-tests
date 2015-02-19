@@ -33,7 +33,7 @@ describe('RG2 Manager 5', function() {
     element(by.id('rg2-event-name')).sendKeys('Event 5: London Colney');
 	  element(by.id('rg2-map-selected')).all(by.css('option')).get(1).click();
     element(by.id('rg2-club-name')).sendKeys('HH');
-    element(by.id('rg2-event-date')).sendKeys('2014-12-01');
+    element(by.id('rg2-event-date')).sendKeys('2015-02-19');
     element(by.id('rg2-event-date')).sendKeys(protractor.Key.ENTER);
     element(by.id('rg2-event-level')).all(by.css('option')).get(2).click();
     btnNoResults.click();
@@ -46,8 +46,15 @@ describe('RG2 Manager 5', function() {
 		rg2.acknowledgeWarning('has been added');
 	});
 
+  it('should load the event just created', function() {
+    rg2.loadRG2();
+    rg2.getNewestEvent();
+    rg2.checkTitle('Event 5: London Colney 2015-02-19');
+  });
+
   it('should show and hide the about dialog with event info', function() {
     rg2.showAboutDialog();
+    expect(element(by.id('rg2-event-stats')).getText()).toContain('no course file, no results, not georeferenced');
     rg2.hideAboutDialog();
   });
 

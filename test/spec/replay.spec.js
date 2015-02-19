@@ -25,10 +25,12 @@ describe('RG2 replay', function() {
 
   var cbxShowReplay = element.all(by.css('.showreplay'));
   var cbxAllCourseReplay = element.all(by.css('.allcoursereplay'));
+  var cbxAllCourseTracks = element.all(by.css('.allcoursetracks'));
 
   it('should select a Trent Park score event with a georeferenced map', function() {
     rg2.loadRG2();
     rg2.getEvent('135');
+    rg2.checkTitle('Boxing Day Score: Trent Park 2013-12-26');
     course.showCoursesTab();
   });
 
@@ -66,12 +68,13 @@ describe('RG2 replay', function() {
 		rg2.hideSplits();
   });
 
-  it('should show a Welwyn event with no splits', function() {
+  it('should show a Welwyn event with no splits and GPS routes only', function() {
     rg2.getEvent('154');
+    rg2.checkTitle('Herts ARC 2014: Welwyn Garden City 2014-08-05');
   	result.showResultsTab();
   });
 
-  it('should allow replay for an event with no splits', function() {
+  it('should allow replay for an event with no splits and GPS routes only', function() {
     cbxShowReplay.first().click();
     expect(animationControls.isDisplayed()).toBe(true);
 		// start
@@ -83,6 +86,22 @@ describe('RG2 replay', function() {
     rg2.hideOptionsDialog();
 
   });
+
+  it('should show a Rothamsted event with no splits and drawn and GPS routes', function() {
+    rg2.getEvent('119');
+    rg2.checkTitle('Herts ARC 2013 Race 8: Rothamsted 2013-06-25');
+    result.showResultsTab();
+  });
+
+  it('should allow replay for an event with no splits and drawn and GPS routes', function() {
+    cbxShowReplay.get(0).click();
+    cbxShowReplay.get(1).click();
+    expect(animationControls.isDisplayed()).toBe(true);
+    btnStartStop.click();
+    browser.sleep(5000);
+  });
+  
+
   
   it('should select a Mardley Heath event and show the results tab', function() {
   	rg2.loadRG2('#157&course=1&route=2');
@@ -102,6 +121,10 @@ describe('RG2 replay', function() {
     result.showTrack.first().click();
     expect(trackNames.isDisplayed()).toBe(true);
     result.showTrack.get(1).click();  
+    expect(trackNames.isDisplayed()).toBe(false);
+    cbxAllCourseTracks.first().click();
+    expect(trackNames.isDisplayed()).toBe(true);
+    cbxAllCourseTracks.first().click();
     expect(trackNames.isDisplayed()).toBe(false);
   });
 

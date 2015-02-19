@@ -47,7 +47,7 @@ describe('RG2 Manager 4', function() {
     element(by.id('rg2-event-date')).clear().sendKeys('2014-12-01');
     element(by.id('rg2-event-date')).sendKeys(protractor.Key.ENTER);
     element(by.id('rg2-event-level')).all(by.css('option')).get(4).click();
-    element(by.id('rg2-event-comments')).clear().sendKeys('IOF V3 course file, IOF V3 results, not georeferenced');
+    // no comments for this event
 	});
 
 	it('should add courses for Event 4B: IOF V2 results: IOF V3 courses: not georef', function() {
@@ -60,6 +60,11 @@ describe('RG2 Manager 4', function() {
 		rg2.acknowledgeWarning('Error processing XML file');
 	});
 
+  it('should report a missing ResultList in XML results', function() {
+    element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV2invalidresults.xml');
+    rg2.acknowledgeWarning('ResultList element missing.');
+  });
+  
 	it('should add results for Event 4B: IOF V2 results: IOF V3 courses: not georef', function() {
 	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV3results.xml');
 		manager.acknowledgeResultInfo();

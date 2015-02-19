@@ -1,7 +1,9 @@
 describe('RG2 GPS', function() {
 	var rg2 = require('../page/rg2.page.js');
 	var draw = require('../page/draw.page.js');
-	
+  var result = require('../page/result.page.js');
+  var cbxAllCourseTracks = element.all(by.css('.allcoursetracks'));  
+ 
 	it('should allow you to show the draw tab', function() {
    	rg2.loadRG2();
  		rg2.getEvent('68');
@@ -14,7 +16,7 @@ describe('RG2 GPS', function() {
     draw.addComment('Protractor test comment');
 	  draw.loadGPSFile(rg2.dir + '/test/data/verulamium.abc');
 	  draw.saveGPSRoute();
-		rg2.acknowledgeWarning("File not found");
+		rg2.acknowledgeWarning("Unable to open GPS file");
   });
 
   it('should warn about an invalid file', function() {
@@ -62,6 +64,9 @@ describe('RG2 GPS', function() {
 
   it('should allow you to load a georeferenced Ellenbrook event', function() {
  		rg2.getEvent('158');
+    rg2.showAboutDialog();
+    expect(element(by.id('rg2-event-stats')).getText()).toContain(' Ellenbrook Saturday League: 2014-09-06');
+    rg2.hideAboutDialog();
     draw.showDrawTab();
   });
 
@@ -71,14 +76,25 @@ describe('RG2 GPS', function() {
     draw.addComment('Protractor test comment');
 	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.tcx');
 	  draw.saveGPSRoute();
+    browser.sleep(2000);
+
 		rg2.acknowledgeWarning("Your route has been saved");
   });
   
   it('should warn you if the GPX file does not match the map location', function() {
+    browser.sleep(2000);
     draw.courses.get(2).click();
+    browser.sleep(2000);
+
     draw.names.get(6).click();
+    browser.sleep(2000);
+
     draw.addComment('Protractor test comment');
+    browser.sleep(2000);
+
 	  draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
+    browser.sleep(2000);
+
 		rg2.acknowledgeWarning("Your GPS file does not match the map");
   });
   
@@ -95,6 +111,16 @@ describe('RG2 GPS', function() {
 	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.tcx');
 	  draw.saveGPSRoute();
 		rg2.acknowledgeWarning("Your route has been saved");
+  });
+
+  it('should allow you to display all routes for this event', function() {
+    result.showResultsTab();
+    result.openResultsList(0);
+    expect(rg2.trackNames.isDisplayed()).toBe(false);
+    cbxAllCourseTracks.first().click();
+    expect(rg2.trackNames.isDisplayed()).toBe(true);
+    cbxAllCourseTracks.first().click();
+    expect(rg2.trackNames.isDisplayed()).toBe(false);
   });
 
   it('should select a Verulamium score event', function() {
