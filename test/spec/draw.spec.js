@@ -2,9 +2,51 @@ describe('RG2 draw', function() {
 	var rg2 = require('../page/rg2.page.js');
 	var draw = require('../page/draw.page.js');
 	var course = require('../page/draw.page.js');
-		 
+
+  it('should allow you to load a Hertford event with no results', function() {
+    rg2.loadRG2();
+    rg2.getEvent('141');
+    rg2.checkTitle('Herts Winter ARC: Hertford 2014-04-15');
+    draw.showDrawTab();
+  });
+  
+   it('should allow you to add your details', function() {
+    draw.courses.get(1).click();
+    draw.enterName('');
+    draw.enterName('Hertford test runner 1');
+    // clear out name
+    draw.enterName('');
+    // enter name again
+    draw.enterName('Hertford test runner 2');
+    draw.enterTime('12.34');
+    draw.addComment('No results Hertford draw test');
+  });
+  
+   it('should allow you to start drawing a route', function() {
+    browser.actions().mouseMove(rg2.map, {x:500, y:200}).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, {x:700, y:250}).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, {x:900, y:200}).mouseDown().mouseUp().perform();
+    draw.undo();
+    browser.actions().mouseMove(rg2.map, {x:950, y:150}).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, {x:1100, y:500}).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, {x:929, y:424}).mouseDown().mouseUp().perform();
+  });
+  
+   it('should allow you to undo even when you have finished', function() {
+    draw.undo();
+    browser.actions().mouseMove(rg2.map, {x:1000, y:600}).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, {x:929, y:424}).mouseDown().mouseUp().perform();
+  });
+  
+   it('should allow you to save your route', function() {
+    draw.saveRoute();
+    rg2.acknowledgeWarning('Your route has been saved.');
+    browser.sleep(10000);
+  });
+ 
 	it('should load a Mardley event and show the draw tab', function() {
  		rg2.loadRG2('#157');
+    rg2.checkTitle('SEOA Middle Champs: Mardley Heath 2014-04-27');
     draw.showDrawTab();
   });
 
@@ -58,25 +100,6 @@ describe('RG2 draw', function() {
   it('should allow you to reset everything', function() {
 		draw.resetDrawingCancel();
 		draw.resetDrawing();
-  });
-
-	it('should allow you to load a Hertford event with no results', function() {
- 		rg2.getEvent('141');
-    draw.showDrawTab();
-  });
-  
-   it('should allow you to add a result and draw a route', function() {
-    draw.courses.get(1).click();
-    draw.enterName('');
-    draw.enterName('Hertford test runner 1');
-    // clear out name
-    draw.enterName('');
-    // enter name again
-    draw.enterName('Hertford test runner 2');
-    draw.enterTime('12.34');
-    draw.addComment('No results Hertford draw test');
-    // add first point
-    browser.actions().click(rg2.map).perform();
   });
 
 });

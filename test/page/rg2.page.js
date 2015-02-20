@@ -45,7 +45,7 @@ var RG2Page = function() {
 		// shouldn't need this bit it seems to force a reload which sometimes doesn't happen if you just change the hash
 		browser.get('http://localhost');
 		browser.get(url);
-  	browser.manage().window().setSize(1024, 768);
+  	browser.manage().window().setSize(1280, 800);
  		browser.sleep(1000);
     expect(browser.getTitle()).toEqual('Routegadget 2');
  		if (!hash) {
@@ -114,7 +114,8 @@ var RG2Page = function() {
 
 	this.hideSplits = function() {
     expect(this.splitsTable.isDisplayed()).toBe(true);
-    element(by.css('.rg2-splits-table')).sendKeys(protractor.Key.ESCAPE);
+    element(by.css('.rg2-splits-table')).element(by.buttonText('Ok')).click();
+    //element(by.css('.rg2-splits-table')).sendKeys(protractor.Key.ESCAPE);
     expect(this.splitsTable.isDisplayed()).toBe(false);
 	};
 	
@@ -204,8 +205,11 @@ var RG2Page = function() {
     	break;
     default:
     	spinner.element(by.css('input')).clear().sendKeys(val);
+      // need to click to get it accepted: not ideal but it works
+      spinner.element(by.css('.ui-spinner-down')).click();
       break;
    }
+
 	};
 
 	this.showGPSSpeed = function() {

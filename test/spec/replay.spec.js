@@ -28,7 +28,8 @@ describe('RG2 replay', function() {
   var cbxAllCourseTracks = element.all(by.css('.allcoursetracks'));
 
   it('should select a Trent Park score event with a georeferenced map', function() {
-    rg2.loadRG2();
+    // invalid hash so just display event list
+    rg2.loadRG2('#x');
     rg2.getEvent('135');
     rg2.checkTitle('Boxing Day Score: Trent Park 2013-12-26');
     course.showCoursesTab();
@@ -88,13 +89,15 @@ describe('RG2 replay', function() {
   });
 
   it('should show a Rothamsted event with no splits and drawn and GPS routes', function() {
-    rg2.getEvent('119');
+    rg2.loadRG2('#132');
     rg2.checkTitle('Herts ARC 2013 Race 8: Rothamsted 2013-06-25');
     result.showResultsTab();
   });
 
   it('should allow replay for an event with no splits and drawn and GPS routes', function() {
+    result.openResultsList(0);
     cbxShowReplay.get(0).click();
+    browser.sleep(5000);
     cbxShowReplay.get(1).click();
     expect(animationControls.isDisplayed()).toBe(true);
     btnStartStop.click();

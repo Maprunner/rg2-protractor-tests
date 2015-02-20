@@ -9,7 +9,7 @@ var ResultPage = function() {
   this.table = element(by.css('.resulttable'));
     
 	this.showResultsTab = function() {
-		this.resultsTab.element(by.id('ui-id-3')).click();
+    this.resultsTab.click();
 		expect(this.body.isDisplayed()).toBe(true);
 	};
 	

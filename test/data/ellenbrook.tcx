@@ -42526,6 +42526,9 @@
               </TPX>
             </Extensions>
           </Trackpoint>
+          <Trackpoint>
+            <Time>2013-08-13T18:54:12Z</Time>
+          </Trackpoint>
         </Track>
         <Extensions>
           <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">

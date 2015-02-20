@@ -13,7 +13,7 @@ module.exports = function(grunt) {
   										'test/kartat/*_157.txt', 'test/kartat/165.jpg',
   										'test/kartat/*_155.txt', 'test/kartat/163.jpg',
   										'test/kartat/*_153.txt', 'test/kartat/161.jpg',
-                      'test/kartat/*_132.txt', 'test/kartat/132.jpg',
+                      'test/kartat/*_132.txt', 'test/kartat/129.jpg',
   										'test/kartat/*_128.txt', 'test/kartat/125.jpg',
   										'test/kartat/*_110.txt', 'test/kartat/111.jpg',
   										'test/kartat/*_72.txt', 'test/kartat/72.jpg',

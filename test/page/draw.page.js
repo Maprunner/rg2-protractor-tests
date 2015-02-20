@@ -3,6 +3,7 @@ var DrawPage = function() {
 	this.body = element(by.id('rg2-draw'));
 	this.drawTab = element(by.id('rg2-draw-tab'));
 	this.btnSaveGPSRoute = element(by.id('btn-save-gps-route'));
+  this.btnSaveRoute = element(by.id('btn-save-route'));
   this.btnResetDrawing = element(by.id('btn-reset-drawing'));
   this.courses = element(by.id('rg2-course-select')).all(by.css('option'));
   this.names = element(by.id('rg2-name-select')).all(by.css('option'));
@@ -16,7 +17,7 @@ var DrawPage = function() {
 	this.file = element(by.id('rg2-load-gps-file'));
 	
 	this.showDrawTab = function() {
-		this.drawTab.element(by.id('ui-id-4')).click();
+		this.drawTab.click();
 		expect(this.body.isDisplayed()).toBe(true);
 	};
 	
@@ -73,6 +74,11 @@ var DrawPage = function() {
 		this.btnMoveAll.click();
 	};
 
+  this.saveRoute = function () {
+    this.btnSaveRoute.click();
+    browser.sleep(1000);
+  };
+  
 	this.saveGPSRoute = function () {
 		this.btnSaveGPSRoute.click();
 		browser.sleep(1000);

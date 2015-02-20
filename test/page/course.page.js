@@ -6,7 +6,7 @@ var CoursePage = function() {
 	this.allCourses = element.all(by.css('.allcourses')).first();
 	  
 	this.showCoursesTab = function() {
-		this.coursesTab.element(by.id('ui-id-2')).click();
+		this.coursesTab.click();
 		expect(this.body.isDisplayed()).toBe(true);
 	};
 	
