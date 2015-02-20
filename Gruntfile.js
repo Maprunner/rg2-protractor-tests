@@ -6,19 +6,19 @@ module.exports = function(grunt) {
   var jsDoNotInstrumentList = ['../rg2/rg2api.php', '../rg2/index.php', '../rg2/js/plugins.js', '../rg2/js/lib/he.js', '../rg2/js/lib/proj4js-compressed.js',
     '../rg2/html/*.html', '../rg2/css/*.css', '../rg2/lang/*.txt', '../rg2/img/*.*'];
   
-  var kartatFiles = ['../rg2-test-data/hh/kartat/kisat.txt',
-  										'../rg2-test-data/hh/kartat/kartat.txt',
-  										'../rg2-test-data/hh/kartat/*_172.txt', '../rg2-test-data/hh/kartat/181.jpg',
-  										'../rg2-test-data/hh/kartat/*_168.txt', '../rg2-test-data/hh/kartat/177.jpg',
-  										'../rg2-test-data/hh/kartat/*_157.txt', '../rg2-test-data/hh/kartat/165.jpg',
-  										'../rg2-test-data/hh/kartat/*_155.txt', '../rg2-test-data/hh/kartat/163.jpg',
-  										'../rg2-test-data/hh/kartat/*_153.txt', '../rg2-test-data/hh/kartat/161.jpg',
-                      '../rg2-test-data/hh/kartat/*_132.txt', '../rg2-test-data/hh/kartat/132.jpg',
-  										'../rg2-test-data/hh/kartat/*_128.txt', '../rg2-test-data/hh/kartat/125.jpg',
-  										'../rg2-test-data/hh/kartat/*_110.txt', '../rg2-test-data/hh/kartat/111.jpg',
-  										'../rg2-test-data/hh/kartat/*_72.txt', '../rg2-test-data/hh/kartat/72.jpg',
-  										'../rg2-test-data/hh/kartat/*_1.txt', '../rg2-test-data/hh/kartat/1.jpg',
-  										'test/data/rg2userinfo.txt'
+  var kartatFiles = ['test/kartat/kisat.txt',
+  										'test/kartat/kartat.txt',
+  										'test/kartat/*_172.txt', 'test/kartat/181.jpg',
+  										'test/kartat/*_168.txt', 'test/kartat/177.jpg',
+  										'test/kartat/*_157.txt', 'test/kartat/165.jpg',
+  										'test/kartat/*_155.txt', 'test/kartat/163.jpg',
+  										'test/kartat/*_153.txt', 'test/kartat/161.jpg',
+                      'test/kartat/*_132.txt', 'test/kartat/132.jpg',
+  										'test/kartat/*_128.txt', 'test/kartat/125.jpg',
+  										'test/kartat/*_110.txt', 'test/kartat/111.jpg',
+  										'test/kartat/*_72.txt', 'test/kartat/72.jpg',
+  										'test/kartat/*_1.txt', 'test/kartat/1.jpg',
+  										'test/kartat/rg2userinfo.txt'
   										];
   
   // Project configuration.
@@ -28,7 +28,6 @@ module.exports = function(grunt) {
    clean: {
 			tests: [
 			'test/coverage', 
-			'test/report',
 			'kartat'],
 			instrumented: [
 			'instrumented/*.js']
@@ -88,7 +87,7 @@ module.exports = function(grunt) {
   makeReport: {
     src: 'test/coverage/*.json',
 // html
-    options: {type: 'html', dir: 'test/report', print: 'detail'}
+    options: {type: 'html', dir: 'test/rg2', print: 'detail'}
 // lcov
     //options: {type: 'lcov', dir: 'test/coverage', print: 'detail'}
   }

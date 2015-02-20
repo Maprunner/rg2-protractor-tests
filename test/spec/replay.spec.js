@@ -100,9 +100,7 @@ describe('RG2 replay', function() {
     btnStartStop.click();
     browser.sleep(5000);
   });
-  
 
-  
   it('should select a Mardley Heath event and show the results tab', function() {
   	rg2.loadRG2('#157&course=1&route=2');
     // got a route in the URL
@@ -198,13 +196,15 @@ describe('RG2 replay', function() {
     browser.sleep(1000);
     browser.actions().dragAndDrop(clockSlider, {x: 10, y: 0}).perform();
     browser.sleep(1000);
-    // stop
+  });
+
+  it('should stop animation', function() {
     btnStartStop.click();
     cbxAllCourseReplay.first().click();
     expect(animationControls.isDisplayed()).toBe(false);
   });
 
-  it('should allow replay from control and by control', function() {
+  it('should allow replay from control', function() {
     expect(animationControls.isDisplayed()).toBe(false);
     cbxShowReplay.first().click();
     cbxShowReplay.get(1).click();
@@ -215,6 +215,9 @@ describe('RG2 replay', function() {
     // start
     btnStartStop.click();
     browser.sleep(6000);
+  });
+
+  it('should allow replay by control', function() {
     // replay by control
     startOption.last().click();
     browser.sleep(6000);

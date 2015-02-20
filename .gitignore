@@ -6,3 +6,5 @@ test/rg2
 kartat
 test/data/*.gif
 test/data/*.jpg
+test/kartat/*.gif
+test/kartat/*.jpg
