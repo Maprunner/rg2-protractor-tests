@@ -23,6 +23,8 @@ describe('RG2', function() {
     rg2.showAboutDialog();
     expect(element(by.id('rg2-event-stats')).getText()).toContain('SEOA Middle Champs: Mardley Heath: 2014-04-27');
     rg2.hideAboutDialog();
+    // pause to allow touch drag, pinch zoom and mouse wheel scroll manual input
+    browser.sleep(15000);
   });
 
   it('should toggle controls on and off', function() {

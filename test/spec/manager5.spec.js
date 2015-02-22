@@ -1,6 +1,7 @@
 describe('RG2 Manager 5', function() {
 	var rg2 = require('../page/rg2.page.js');
 	var manager = require('../page/manager.page.js');
+  var draw = require('../page/draw.page.js');
 
   var btnDrawCourses = element(by.id('btn-draw-courses'));
   var btnNoResults = element(by.id('btn-no-results'));
@@ -26,16 +27,15 @@ describe('RG2 Manager 5', function() {
  		manager.login();
   });
 
-	it('should create Event 5: no results: no courses: not georef', function() {
+	it('should create Event 5-01: no results: no courses: not georef', function() {
   	manager.showCreateTab();
     btnDrawCourses.click();
 		rg2.acknowledgeWarning();
-    element(by.id('rg2-event-name')).sendKeys('Event 5: London Colney');
+    element(by.id('rg2-event-name')).sendKeys('Event 5-01: London Colney');
 	  element(by.id('rg2-map-selected')).all(by.css('option')).get(1).click();
-    element(by.id('rg2-club-name')).sendKeys('HH');
-    element(by.id('rg2-event-date')).sendKeys('2015-02-19');
-    element(by.id('rg2-event-date')).sendKeys(protractor.Key.ENTER);
-    element(by.id('rg2-event-level')).all(by.css('option')).get(2).click();
+    manager.enterClubName('HH');
+    manager.enterDate('2015-05-01');
+    manager.enterLevel(2);
     btnNoResults.click();
 	  element(by.id('rg2-event-comments')).sendKeys('no course file, no results, not georeferenced');
     btnDrawCourses.click();
@@ -49,13 +49,26 @@ describe('RG2 Manager 5', function() {
   it('should load the event just created', function() {
     rg2.loadRG2();
     rg2.getNewestEvent();
-    rg2.checkTitle('Event 5: London Colney 2015-02-19');
+    rg2.checkTitle('Event 5-01: London Colney 2015-05-01');
   });
 
   it('should show and hide the about dialog with event info', function() {
     rg2.showAboutDialog();
     expect(element(by.id('rg2-event-stats')).getText()).toContain('no course file, no results, not georeferenced');
     rg2.hideAboutDialog();
+  });
+
+   it('should allow you to add your details', function() {
+    draw.showDrawTab();
+    draw.courses.get(1).click();
+    draw.enterName('London Colney test runner');
+    draw.enterTime('10:01');
+  });
+  
+  it('should allow you to upload a GPX file', function() {
+    draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
+    draw.saveGPSRoute();
+    rg2.acknowledgeWarning("Your route has been saved.");
   });
 
 });

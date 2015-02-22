@@ -16,7 +16,7 @@ describe('RG2 Manager Edit', function() {
   });
 
 	it('should select an event and update event details', function() {
-  	manager.showEditTab();
+    manager.showEditTab();
 	  element(by.id('rg2-event-selected')).all(by.css('option')).get(1).click();
     element(by.id('rg2-event-name-edit')).sendKeys(':edit');
     element(by.id('rg2-club-name-edit')).sendKeys(' edit');
@@ -28,31 +28,29 @@ describe('RG2 Manager Edit', function() {
   	dlgConfirmEditEvent.element(by.buttonText('Cancel')).click();
 	  btnUpdateEvent.click();
   	dlgConfirmEditEvent.element(by.buttonText('Update event')).click();
-	  browser.sleep(1000);
+	  browser.sleep(2000);
 		rg2.acknowledgeWarning("has been updated");
-
-	});
-
-	it('should delete an event', function() {
-	  element(by.id('rg2-event-selected')).all(by.css('option')).get(1).click();
-	  btnDeleteEvent.click();
-  	dlgConfirmDeleteEvent.element(by.buttonText('Cancel')).click();
-	  btnDeleteEvent.click();
-  	dlgConfirmDeleteEvent.element(by.buttonText('Delete event')).click();
-	  browser.sleep(1000);
-		rg2.acknowledgeWarning("has been deleted");
 	});
 
 	it('should delete a route', function() {
-	  element(by.id('rg2-event-selected')).all(by.css('option')).last().click();
-	  browser.sleep(1000);
-	  element(by.id('rg2-route-selected')).all(by.css('option')).first().click();
+	  element(by.id('rg2-event-selected')).all(by.css('option')).get(1).click();
+	  element(by.id('rg2-route-selected')).all(by.css('option')).first(0).click();
 	  btnDeleteRoute.click();
   	dlgConfirmDeleteRoute.element(by.buttonText('Cancel')).click();
 	  btnDeleteRoute.click();
   	dlgConfirmDeleteRoute.element(by.buttonText('Delete route')).click();
-	  browser.sleep(1000);
+    browser.sleep(2000);
 		rg2.acknowledgeWarning();
 	});
 
+
+  it('should delete an event', function() {
+    element(by.id('rg2-event-selected')).all(by.css('option')).get(2).click();
+    btnDeleteEvent.click();
+    dlgConfirmDeleteEvent.element(by.buttonText('Cancel')).click();
+    btnDeleteEvent.click();
+    dlgConfirmDeleteEvent.element(by.buttonText('Delete event')).click();
+    browser.sleep(2000);
+    rg2.acknowledgeWarning("has been deleted");
+  });
 });

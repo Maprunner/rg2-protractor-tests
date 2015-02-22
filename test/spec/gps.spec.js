@@ -3,17 +3,29 @@ describe('RG2 GPS', function() {
 	var draw = require('../page/draw.page.js');
   var result = require('../page/result.page.js');
   var cbxAllCourseTracks = element.all(by.css('.allcoursetracks'));  
- 
+  // dodgy maths alert: mousex = (x + 646) / 1.76, mousey = y/1.76
+  // start handle at 817, 729
+  var hStart = {x:830, y:414};
+  // end handle at 862, 617
+  var hEnd = {x:857, y:351};
+  // handle 1 near control 6 on the track at 96, 523
+  var h1 = {x:422,  y:297};
+  // handle 2 on the track at 615, 146
+  var h2 = {x:716, y:83};
+  
 	it('should allow you to show the draw tab', function() {
-   	rg2.loadRG2();
- 		rg2.getEvent('68');
+   	rg2.loadRG2('#143');
+    rg2.checkTitle('Verulamium Saturday League 2013-10-05');
     draw.showDrawTab();
   });
 
-  it('should warn about a missing file', function() {
+  it('should allow you to enter details', function() {
     draw.courses.get(1).click();
     draw.names.get(2).click();
     draw.addComment('Protractor test comment');
+  });
+
+  it('should warn about a missing file', function() {
 	  draw.loadGPSFile(rg2.dir + '/test/data/verulamium.abc');
 	  draw.saveGPSRoute();
 		rg2.acknowledgeWarning("Unable to open GPS file");
@@ -34,32 +46,140 @@ describe('RG2 GPS', function() {
   it('should allow you to upload a GPX file to a non-georeferenced Verulamium map', function() {
 	  draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
   });
-  
+
+  it('should allow you to drag the track', function() {
+    browser.actions().mouseMove(rg2.map, {x:800, y:100}).mouseDown().mouseMove(rg2.map, {x:900, y:50}).mouseUp().perform();
+    draw.undoGPSAdjust();
+  });
+
+  it('should allow you to lock the start handle', function() {
+    browser.actions().mouseMove(rg2.map, hStart).mouseDown().mouseUp().perform();
+    // hStart locked
+  });
+
+  it('should allow you to rotate the track with one handle locked', function() {
+    browser.actions().mouseMove(rg2.map, {x:850, y:50}).mouseDown().mouseMove(rg2.map, {x:900, y:50}).mouseUp().perform();
+    draw.undoGPSAdjust();
+    // hStart locked
+  });
+
+  it('should allow you to unlock the start handle', function() {
+    browser.actions().mouseMove(rg2.map, hStart).mouseDown().mouseUp().perform();
+    // no handles locked
+  });
+
+  it('should allow you to lock the last handle', function() {
+    browser.actions().mouseMove(rg2.map, hEnd).mouseDown().mouseUp().perform();
+    // hEnd locked
+  });
+
+  it('should allow you to rotate the track with one handle locked', function() {
+    browser.actions().mouseMove(rg2.map, {x:500, y:50}).mouseDown().mouseMove(rg2.map, {x:550, y:55}).mouseUp().perform();
+    draw.undoGPSAdjust();
+    // hEnd locked
+  });
+
+  it('should allow you to unlock the last handle', function() {
+    browser.actions().mouseMove(rg2.map, hEnd).mouseDown().mouseUp().perform();
+    // no handles locked
+  });
+
+  it('should allow you to add, lock and unlock h1', function() {
+    browser.actions().mouseMove(rg2.map, h1).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, h1).mouseDown().mouseUp().perform();
+    browser.actions().click(protractor.Button.RIGHT).perform();
+    // no handles locked
+  });
+
+  it('should allow you to delete an unlocked handle', function() {
+    browser.actions().mouseMove(rg2.map, h1).perform();
+    browser.actions().click(protractor.Button.RIGHT).perform();
+    // no handles locked
+  });
+
+  it('should allow you to add and lock a new handle', function() {
+    browser.actions().mouseMove(rg2.map, h1).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, h1).mouseDown().mouseUp().perform();
+    // h1 locked
+  });
+
+  it('should allow you to rotate the track with one locked handle', function() {
+    browser.actions().mouseMove(rg2.map, {x:830, y:50}).mouseDown().mouseMove(rg2.map, {x:900, y:50}).mouseUp().perform();
+    draw.undoGPSAdjust();
+    // h1 locked
+  });
+
+  it('should allow you to lock the last handle', function() {
+    browser.actions().mouseMove(rg2.map, hEnd).mouseDown().mouseUp().perform();
+    // h1, hEnd locked
+  });
+
+  it('should do nothing if you drag  when not on a handle (case 1)', function() {
+    browser.actions().mouseMove(rg2.map, {x:800, y:400}).mouseDown().mouseMove(rg2.map, {x:850, y:450}).mouseUp().perform();
+    draw.undoGPSAdjust();
+    // h1, hEnd locked
+  });
+
+  it('should do nothing if you drag a locked handle (case 2)', function() {
+    browser.actions().mouseMove(rg2.map, h1).mouseDown().mouseMove(rg2.map, {x:850, y:450}).mouseUp().perform();
+    draw.undoGPSAdjust();
+    // h1, hEnd locked
+  });
+
+  it('should allow you to scale part of the track by dragging an unlocked handle between start and two locked handles (case 3)', function() {
+    browser.actions().mouseMove(rg2.map, hStart).mouseDown().mouseMove(rg2.map, {x:850, y:450}).mouseUp().perform();
+    draw.undoGPSAdjust();
+    // h1, hEnd locked
+  });
+
   it('should allow you change tabs when uploading a normal route', function() {
     rg2.showEventsTab();
     draw.showDrawTab();
   });
 
-  it('should allow you to adjust the GPX route', function() {
-	  browser.actions().dragAndDrop(rg2.map, {x: 100, y: 100}).perform();
-	  draw.undoGPSAdjust();
-	  browser.actions().dragAndDrop(rg2.map, {x: 50, y: 200}).perform();
-	  draw.lockBackground();
-	  browser.actions().dragAndDrop(rg2.map, {x: 50, y: 200}).perform();
+  it('should allow you to scale part of the track by dragging an unlocked handle between end and two locked handles (case 4)', function() {
+    // h1, hEnd locked
+    browser.actions().mouseMove(rg2.map, hEnd).mouseDown().mouseUp().perform();
+    // h1 locked
+    browser.actions().mouseMove(rg2.map, hStart).mouseDown().mouseUp().perform();
+    // h1, hStart locked
+    browser.actions().mouseMove(rg2.map, hEnd).mouseDown().mouseMove(rg2.map, {x:850, y:450}).mouseUp().perform();
+    draw.undoGPSAdjust();
+    // h1, hStart locked
   });
 
+  it('should allow you to shear around a handle between two locked handles (case 5)', function() {
+    // h1, hStart locked
+    browser.actions().mouseMove(rg2.map, h2).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, h2).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, h1).mouseDown().mouseUp().perform();
+    // h2, hStart locked
+    browser.actions().mouseMove(rg2.map, h1).mouseDown().mouseMove(rg2.map, {x:500, y:300}).mouseUp().perform();
+    draw.undoGPSAdjust();
+    // h2, hStart locked
+  });
+
+  it('should allow you to adjust the GPX route', function() {
+	  browser.actions().dragAndDrop(rg2.map, {x: 20, y: 25}).perform();
+	  draw.undoGPSAdjust();
+	  browser.actions().dragAndDrop(rg2.map, {x: 10, y: 20}).perform();
+    draw.undoGPSAdjust();
+	  draw.lockBackground();
+	  browser.actions().dragAndDrop(rg2.map, {x: 30, y: 20}).perform();
+	});
+  
   it('should save the GPX route', function() {
 	  draw.saveGPSRoute();
-		rg2.acknowledgeWarning("Your route has been saved");
+		rg2.acknowledgeWarning("Your route has been saved.");
   });
-  
+
   it('should allow you to add a second GPS result for the same person', function() {
     draw.courses.get(1).click();
     draw.names.get(2).click();
     draw.addComment('Second GPS result test');
 	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.gpx');
 	  draw.saveGPSRoute();
-		rg2.acknowledgeWarning("Your route has been saved");
+		rg2.acknowledgeWarning("Your route has been saved.");
   });
 
   it('should allow you to load a georeferenced Ellenbrook event', function() {
@@ -77,17 +197,16 @@ describe('RG2 GPS', function() {
 	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.tcx');
 	  draw.saveGPSRoute();
     browser.sleep(2000);
-
 		rg2.acknowledgeWarning("Your route has been saved");
   });
   
   it('should warn you if the GPX file does not match the map location', function() {
-    browser.sleep(2000);
+    browser.sleep(1000);
     draw.courses.get(2).click();
-    browser.sleep(2000);
+    browser.sleep(1000);
 
     draw.names.get(6).click();
-    browser.sleep(2000);
+    browser.sleep(1000);
 
     draw.addComment('Protractor test comment');
     browser.sleep(2000);
@@ -143,5 +262,5 @@ describe('RG2 GPS', function() {
   it('should allow you to adjust a route', function() {
     // click to force test of handles on route
     browser.actions().click(rg2.map).perform();
-  });  
+  });
 });

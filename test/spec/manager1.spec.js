@@ -1,9 +1,18 @@
 describe('RG2 Manager 1', function() {
   var rg2 = require('../page/rg2.page.js');
   var manager = require('../page/manager.page.js');
-
   var btnMoveMapAndControls = element(by.id('btn-move-map-and-controls'));
   var btnCreateEvent = element(by.id('btn-create-event'));
+
+  // mousex = (x + 719) / 1.96, mousey = y/1.96
+  // 310, 1286: control 187
+  var h1 = {x:525,  y:656};
+  // 304, 1372: correct control 187
+  var h2 = {x:522, y:700};
+  // 766, 394: control 193
+  var h3 = {x:758, y:201};
+  // 730, 700: correct control 193
+  var h4 = {x:739, y:357};
 
   it('should show the login screen', function() {
     manager.startManager();
@@ -66,7 +75,7 @@ describe('RG2 Manager 1', function() {
   });
 
   it('should report map validation errors', function() {
-    element(by.id('rg2-event-name')).sendKeys('Event 1: Ellenbrook');
+    element(by.id('rg2-event-name')).sendKeys('Event 1-01: Ellenbrook');
     btnCreateEvent.click();
     // missing data: error reported
     rg2.acknowledgeWarning("No map selected");
@@ -84,15 +93,14 @@ describe('RG2 Manager 1', function() {
   });
 
   it('should report date validation errors', function() {
-    element(by.id('rg2-club-name')).sendKeys('HH');
+    manager.enterClubName('HH');
     btnCreateEvent.click();
     // missing data: error reported
     rg2.acknowledgeWarning("Event date is not valid.");
   });
 
   it('should report event level validation errors', function() {
-    element(by.id('rg2-event-date')).clear().sendKeys('2014-12-01');
-    element(by.id('rg2-event-date')).sendKeys(protractor.Key.ENTER);
+    manager.enterDate('2015-01-01');
     btnCreateEvent.click();
     // missing data: error reported
     rg2.acknowledgeWarning("Event level is not valid");
@@ -100,7 +108,7 @@ describe('RG2 Manager 1', function() {
 
   it('should allow the event level to be set', function() {
     // first entry is "Select event level" so does nothing useful
-    element(by.id('rg2-event-level')).all(by.css('option')).get(0).click();
+    manager.enterLevel(0);
     btnCreateEvent.click();
     // missing data: error reported
     rg2.acknowledgeWarning("Event level is not valid");
@@ -111,7 +119,7 @@ describe('RG2 Manager 1', function() {
   });
 
   it('should allow comments to be entered', function() {
-    element(by.id('rg2-event-comments')).sendKeys('IOF V2 course file, CSV results.not georeferenced');
+    element(by.id('rg2-event-comments')).sendKeys('IOF V2 course file, CSV results, map not georeferenced');
   });
 
   it('should report results file validation errors', function() {
@@ -137,6 +145,15 @@ describe('RG2 Manager 1', function() {
     manager.acknowledgeCourseInfo();
   });
 
+  it('should allow you to adjust the controls', function() {
+    // drag h1 to h2
+    browser.actions().mouseMove(rg2.map, h1).mouseDown().mouseMove(rg2.map, h2).mouseUp().perform();
+    // lock h2
+    browser.actions().mouseMove(rg2.map, h2).mouseDown().mouseUp().perform();
+    // drag h3 to h4
+    browser.actions().mouseMove(rg2.map, h3).mouseDown().mouseMove(rg2.map, h4).mouseUp().perform();
+  });
+
   it('should allow final adjustments', function() {
     // map results to courses
     element(by.id('rg2-alloc-0')).all(by.css('option')).get(4).click();
@@ -153,7 +170,7 @@ describe('RG2 Manager 1', function() {
     }).perform();
   });
 
-  it('should create Event 1: CSV results: IOF V2 courses: not georef', function() {
+  it('should create Event 1-01: CSV results: IOF V2 courses: map not georef', function() {
     manager.createEventCancel();
     manager.createEvent();
     rg2.acknowledgeWarning('has been added');

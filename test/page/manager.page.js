@@ -14,13 +14,13 @@ var ManagerPage = function() {
 	this.dlgResultInfo = element(by.css('.rg2-result-info-dialog'));
 	this.dlgCourseInfo = element(by.css('.rg2-course-info-dialog'));
 	this.btnAddMap = element(by.id('btn-add-map'));
-		
+
 	this.startManager = function() {
 		// not an angular app so need this
 		browser.ignoreSynchronization = true;
-
+    browser.manage().window().setSize(1280, 800);
  		browser.get('http://localhost/rg2-protractor-tests/instrumented/rg2/?manage');
- 		browser.sleep(500);
+ 		browser.sleep(1000);
  		expect(this.loginBody.isDisplayed()).toBe(true);
 	};
 	  
@@ -44,20 +44,33 @@ var ManagerPage = function() {
 	this.createEvent = function () {
 		this.btnCreateEvent.click();
   	this.dlgConfirmCreateEvent.element(by.buttonText('Create event')).click();
-		browser.sleep(1000);
+		browser.sleep(2000);
 	 };
 	 	
 	this.addMap = function () {
 	  this.btnAddMap.click();
   	this.dlgConfirmAddMap.element(by.buttonText('Add map')).click();
-	  browser.sleep(1000);
+	  browser.sleep(2000);
 	};
 	
 	this.createEventCancel = function () {
 		this.btnCreateEvent.click();
   	this.dlgConfirmCreateEvent.element(by.buttonText('Cancel')).click();
-
 	};
+	
+	this.enterDate = function (date) {
+	  // need enter to get date accepted and escape to close date picker
+   element(by.id('rg2-event-date')).clear().sendKeys(date).sendKeys(protractor.Key.ENTER).sendKeys(protractor.Key.ESCAPE);
+	};
+	
+  this.enterLevel = function (level) {
+    element(by.id('rg2-event-level')).all(by.css('option')).get(level).click();
+  };
+  
+  
+  this.enterClubName = function (name) {
+    element(by.id('rg2-club-name')).clear().sendKeys(name);
+  };
 
 	this.addMapCancel = function () {
 		this.btnAddMap.click();
@@ -77,17 +90,17 @@ var ManagerPage = function() {
 	};
 	
 	this.showMapTab = function() {
-		this.mapTab.element(by.id('ui-id-8')).click();
+		this.mapTab.click();
 		expect(this.mapBody.isDisplayed()).toBe(true);
 	};
 
 	this.showEditTab = function() {
-		this.editTab.element(by.id('ui-id-7')).click();
+		this.editTab.click();
 		expect(this.editBody.isDisplayed()).toBe(true);
 	};
 
 	this.showCreateTab = function() {
-		this.createTab.element(by.id('ui-id-6')).click();
+		this.createTab.click();
 		expect(this.createBody.isDisplayed()).toBe(true);
 	};
 };
