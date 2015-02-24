@@ -51,6 +51,11 @@ describe('RG2 Manager 4', function() {
 	it('should add courses for Event 4-02', function() {
 	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV3coursesnogeoref.xml');
 	  manager.acknowledgeCourseInfo();
+    // move controls a bit
+    browser.actions().dragAndDrop(rg2.map, {x : 100, y : 100}).perform();
+    // lock map and controls and try again
+    manager.lockMap();
+    browser.actions().dragAndDrop(rg2.map, {x : 30, y : 20}).perform();
 	});
 
 	it('should report invalid results', function() {

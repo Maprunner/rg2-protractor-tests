@@ -3,7 +3,7 @@ instrumented
 test/coverage
 test/report
 test/rg2
-kartat
+/kartat
 test/data/*.gif
 test/data/*.jpg
 test/kartat/*.gif

@@ -1,0 +1,186 @@
+1|Whippendell Woods
+2|Northaw Great Wood
+3|Ashridge
+4|Nothaw Great Wood
+5|Phasels Wood
+6|Test - do not use
+7|Ashridge East
+8|Burnham Beeches
+9|Epping East
+10|Highfield Park
+11|Stanborough Park
+12|Rothamsted
+13|Epping East
+14|Whippendell Woods
+15|Sherrardspark Wood
+16|Northaw
+17|Nomansland Common
+18|Ashridge South
+19|Wormley
+20|Whippendell
+21|Sherrardspark Wood
+22|Rothamsted Park
+23|Verulamium Park
+24|Phasels Wood
+25|||||||||||||
+26|Burnham Beeches
+27|Tesdt: Do not use
+28|Cassiobury Park
+29|Mardley Heath
+30|Highfield Park
+31|Highfield Park
+32|Highfield Park Sprint
+33|Chorleywood
+34|Trafalgar Square
+35|Stanborough Park
+36|Ashridge
+37|Ashridge
+38|Rothamsted Park
+39|Verulamium
+40|Trent Park
+41|Broxbourne
+42|Burnham Beeches
+43|Northaw
+44|Highfield Park
+45|Highfield Park
+46|Highfield Park
+47|Highfield Park
+48|Highfield Park
+49|Highfield Park
+50|Jersey Farm
+51|Habs Boys
+52|Langley Wood
+53|St Albans
+54|Verulamium
+55|Stanborough
+56|Whippendell SQE
+57|Wormley Woods
+58|Ashridge
+59|Sherrardspark Wood
+60|Phasels Wood
+61|Boxmoor East
+62|St Albans
+63|St Albans
+64|Hatfield
+65|Ellenbrook Fields
+66|Mardley Heath
+67|Salisbury Village
+68|St Albans
+69|Highfield Park
+70|Sandridge
+71|Stanborough
+72|Verulamium
+73|Habs
+74|Trent Park
+75|Northaw Great Wood
+76|Ashridge
+77|Copyright|691|-0.30069771|97|51.748462|295|-0.30402902|1828|51.738616|1921|-0.28933051|914|51.774150
+78|Sherrardspark Wood
+79|Stanborough Park
+80|De Havilland Campus
+81|Ellenbrook Fields
+82|Ellenbrook Fields
+83|Hatfield OOM
+84|Batchwood
+85|Batchwood OOM
+86|Bernards Heath
+87|Mardley Heath
+88|London Colney
+89|Harpenden
+90|Harpenden
+91|Harpenden
+92|How Wood
+93|Highfield Park
+94|Greenwood Park
+95|Heartwood
+96|St Albans
+97|Jersey Farm
+98|Verulamium
+99|St Albans West
+100|
+101|Highfield Park
+102|Verulamium
+103|Gadebridge
+104|De Havilland Campus
+105|De Havilland Campus
+106|Ellenbrook Fields
+107|Northaw
+108|Gadebridge
+109|Heartwood
+110|Verulamium
+111|Verulamium
+112|Phasels Wood
+113|Phasels Wood
+114|Burnham Beeches
+115|Ashridge North
+116|Ashridge North
+117|Nomansland
+118|St Albans
+119|St Albans
+120|Fleetville and The Camp
+121|Chipperfield Common
+122|St Albans
+123|Handside
+124|Sherrards Park Wood
+125|Highfield Park
+126|Jersey Farm
+127|Jersey Farm
+128|Harpenden
+129|Rothamsted
+130|Habs
+131|Boxmoor and Gadebridge
+132|Verulamium
+133|Boxmoor
+134|Ellenbrook
+135|Chiswell Green
+136|Greenwood Park
+137|Highfield Park
+138|Sherrardspark Wood
+139|Welwyn Village
+140|Verulamium
+141|Northaw
+142|Stanborough
+143|Stanborough
+144|Central St Albans
+145|Rothamsted Park
+146|Rothamsted Park
+147|Rothamsted Park|0|-0.3688997|0|51.815974|1554|-0.3542851|1140|51.809737|1554|-0.3545994|0|51.8162425|0.000009198054665215174|1.7148556552876806e-7|2.7653075378956264e-7|-0.000005704007906582729|-0.36889967548327646|51.81597412471559
+148|Trent Park
+149|Trent Park
+150|Trent Park
+151|Test
+152|RG2 Manager Test
+153|Ashridge Ace of Herts
+154|London Colney
+155|Nomansland
+156|Nomansland
+157|Nomansland
+158|Nomansland|||||||||||||0.000018401329739712218|3.328920624298847e-7|5.369382754331884e-7|-0.000011408493096460944|-0.3195372858370888|51.804039227156075
+159|Northaw|0|-0.15967245378241|0|51.732334346066|2227|-0.11799106386463|1550|51.715326238852|2227|-0.11874786801273|0|51.733017106078
+160|Trent Park
+161|Trent Park|0|-0.15447087772046|0|51.668380941237|2292|-0.11242123984219|1652|51.64950312357|2292|-0.11238911794183|0|51.668368533464
+162|Chipperfield|0|-0.50437514406534|0|51.704577629976|1818|-0.47881202581669|1199|51.694807962123|1818|-0.47933636570693|0|51.705065500535
+163|Hertford OOM
+164|Oaklands College|0|-0.29484121101812|0|51.75738407191|2059|-0.28197134717714|1442|51.752125161456|2059|-0.28222669595744|0|51.75761402066
+165|Mardley Heath
+166|Cassiobury
+167|How Wood
+168|Highfield Park OOM
+169|Highfield May 2014 HARC|0|-0.30246276871354|0|51.748106755161|1553|-0.28783318116948|1329|51.740781848903|1553|-0.28818378800303|0|51.748367228615
+170|Highfield HARC May 2014|0|-0.30246276871354|0|51.748106755161|1553|-0.28783318116948|1329|51.740781848903|1553|-0.28818378800303|0|51.748367228615
+171|
+172|Habs June 2014
+173|Welham Green
+174|Whippendell|0|-0.46564122103889|0|51.676095345636|2230|-0.42382215341245|1551|51.659185213051|2230|-0.42469751233888|0|51.676884192597
+175|Marshalswick
+176|Jersey Farm
+177|WGC
+178|St Albans South
+179|Ver2014-08-26
+180|Oaklands AGM|0|-0.29002861400582|0|51.757440042164|1448|-0.28100004984955|833|51.754430899021|1448|-0.28115506797256|0|51.757598353978
+181|Ellenbrook|0|-0.27199845919593|0|51.774656806972|1197|-0.24907389107182|1756|51.755011682873|1197|-0.24997982748561|0|51.775050432446
+182|Verulamium|0|-0.36364057098276|0|51.754468527164|1984|-0.338680022103|1782|51.741358777928|1984|-0.33932705709255|0|51.754918805241
+183|Verulamium|0|-0.36364057098276|0|51.754468527164|1977|-0.33876688224493|1782|51.741360005772|1977|-0.33941427293092|0|51.754911045542
+184|Test|0|-0.29484121101812|0|51.75738407191|1373|-0.28195686746879|961|51.752124949794|1373|-0.2822122144917|0|51.757613809013
+185|Stanborough|0|-0.22738981647576|0|51.797039163355|1539|-0.20528261158732|2246|51.778189141286|1539|-0.20614382211353|0|51.797409306928
+186|Heartwood|0|-0.33267214696211|0|51.796340318059|1707|-0.30058376899437|1243|51.782725685256|1707|-0.30125435129874|0|51.796906676558

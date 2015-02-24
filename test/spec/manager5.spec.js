@@ -5,7 +5,6 @@ describe('RG2 Manager 5', function() {
 
   var btnDrawCourses = element(by.id('btn-draw-courses'));
   var btnNoResults = element(by.id('btn-no-results'));
-  var btnScoreEvent = element(by.id('btn-score-event'));
   
   it('should allow you to log on as manager', function() {
  		manager.startManager();

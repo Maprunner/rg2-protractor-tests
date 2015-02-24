@@ -24,17 +24,22 @@ describe('RG2 draw', function() {
   
    it('should allow you to start drawing a route', function() {
     browser.actions().mouseMove(rg2.map, {x:500, y:200}).mouseDown().mouseUp().perform();
+    // test undo of first point
+    draw.undo();
+    browser.actions().mouseMove(rg2.map, {x:550, y:250}).mouseDown().mouseUp().perform();
     browser.actions().mouseMove(rg2.map, {x:700, y:250}).mouseDown().mouseUp().perform();
     browser.actions().mouseMove(rg2.map, {x:900, y:200}).mouseDown().mouseUp().perform();
     draw.undo();
   });
   
-   it('should chnage the snap settings', function() {
+   it('should change the snap settings', function() {
     rg2.showOptionsDialog();
     rg2.snap();
     rg2.hideOptionsDialog();
     browser.actions().mouseMove(rg2.map, {x:950, y:150}).mouseDown().mouseUp().perform();
     browser.actions().mouseMove(rg2.map, {x:1100, y:500}).mouseDown().mouseUp().perform();
+    // test x close enough but y not close enough
+    browser.actions().mouseMove(rg2.map, {x:929, y:400}).mouseDown().mouseUp().perform();
     browser.actions().mouseMove(rg2.map, {x:929, y:424}).mouseDown().mouseUp().perform();
   });
   

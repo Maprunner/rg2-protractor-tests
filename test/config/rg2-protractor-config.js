@@ -51,8 +51,8 @@ specs: [
 		//'test/spec/gps.spec.js'
 		//'test/spec/manager1.spec.js'
 		//'test/spec/manager2.spec.js'
-		//'test/spec/manager3.spec.js'
-		//'test/spec/manager4.spec.js'
+		//'test/spec/manager3.spec.js',
+		//'test/spec/manager4.spec.js',
 		//'test/spec/manager5.spec.js'
 		//'test/spec/manageredit.spec.js'
 		//'test/spec/replay.spec.js'

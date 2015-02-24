@@ -1,8 +1,6 @@
 describe('RG2 Manager 3', function() {
 	var rg2 = require('../page/rg2.page.js');
 	var manager = require('../page/manager.page.js');
-	
-  var btnScoreEvent = element(by.id('btn-score-event'));
 
   it('should allow you to log on as manager', function() {
  		manager.startManager();
@@ -28,7 +26,7 @@ describe('RG2 Manager 3', function() {
     manager.enterClubName('HH');
     manager.enterDate('2015-03-01');
     manager.enterLevel(4);
-    btnScoreEvent.click();
+    manager.setScoreEvent();
 	  element(by.id('rg2-event-comments')).sendKeys('IOF V3 relay course file, CSV results, georeferenced');
 	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/pwlldduIOFV3relay.xml');
 	  manager.acknowledgeCourseInfo();

@@ -1,8 +1,6 @@
 describe('RG2 Manager 2', function() {
 	var rg2 = require('../page/rg2.page.js');
 	var manager = require('../page/manager.page.js');
-
-  var btnCreateEvent = element(by.id('btn-create-event'));
   
   it('should reject an invalid password', function() {
  		manager.startManager();
@@ -45,8 +43,7 @@ describe('RG2 Manager 2', function() {
 
   it('should accept a spklasse results file', function() {
 	  // missing data: error reported
-	  btnCreateEvent.click();
-		rg2.acknowledgeWarning("No results information");
+    manager.createEvent("No results information");
 		// read spklasse results
 	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/spklasse.csv');
 	  manager.acknowledgeResultInfo();

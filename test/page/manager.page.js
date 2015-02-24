@@ -1,4 +1,5 @@
 var ManagerPage = function() {
+	 var rg2 = require('../page/rg2.page.js');
 	this.loginTab = element(by.id('rg2-login-tab'));
   this.loginBody = element(by.id('rg2-manage-login'));
 	this.mapTab = element(by.id('rg2-map-tab'));
@@ -14,7 +15,9 @@ var ManagerPage = function() {
 	this.dlgResultInfo = element(by.css('.rg2-result-info-dialog'));
 	this.dlgCourseInfo = element(by.css('.rg2-course-info-dialog'));
 	this.btnAddMap = element(by.id('btn-add-map'));
-
+	this.btnMoveMapAndControls = element(by.id('btn-move-map-and-controls'));
+  this.btnScoreEvent = element(by.id('btn-score-event'));
+  
 	this.startManager = function() {
 		// not an angular app so need this
 		browser.ignoreSynchronization = true;
@@ -41,10 +44,14 @@ var ManagerPage = function() {
   	}
 	};
 	
-	this.createEvent = function () {
+	this.createEvent = function (expectedError) {
 		this.btnCreateEvent.click();
-  	this.dlgConfirmCreateEvent.element(by.buttonText('Create event')).click();
-		browser.sleep(2000);
+		if (expectedError) {
+		  rg2.acknowledgeWarning(expectedError);
+		} else {
+  	  this.dlgConfirmCreateEvent.element(by.buttonText('Create event')).click();
+		  browser.sleep(2000);
+		}
 	 };
 	 	
 	this.addMap = function () {
@@ -103,6 +110,15 @@ var ManagerPage = function() {
 		this.createTab.click();
 		expect(this.createBody.isDisplayed()).toBe(true);
 	};
+	
+	this.lockMap = function() {
+	  this.btnMoveMapAndControls.click();
+	};
+  
+  this.setScoreEvent = function() {
+    this.btnScoreEvent.click();
+  };
+
 };
 
 module.exports = new ManagerPage();

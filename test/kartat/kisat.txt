@@ -1,0 +1,162 @@
+1|1|1|Whippendell SENILE|2006-12-09|Happy Herts|L|
+2|3|1|Ashridge Regional Event|2007-01-21|Happy Herts|R|Control 107 failed and was replaced during the event so some split times to and from this control are estimated. The animation feature now works for everybody who was affected by this, rather than just stopping dead at the previous control.
+3|2|1|Northaw Club Champs|2007-01-06|Happy Herts|L|
+4|6|1|Phasels Wood Saturday Series|2007-02-03|Happy Herts|L|
+5|7|1|Ashridge East Saturday Series|2007-03-03|Happy Herts|L|
+6|8|1|Burnham CS Cup and Trophy|2007-03-18|Happy Herts|R|
+10|11|1|Stanborough Saturday Series|2007-06-16|Happy Herts|L|
+11|10|1|Highfield Park Saturday Series|2007-06-02|Happy Herts|L|
+12|12|1|Saturday Series Rothamsted|2007-06-30|Happy Herts|L|
+13|13|1|USIC Individual|2007-07-07|Happy Herts|I|Results shown here do not have the road crossing time removed.
+14|14|1|USIC Relay|2007-07-08|Happy Herts|I|
+15|15|1|Club Champs - Sherrardspark Wood|2007-09-08|Happy Herts|L|
+16|11|1|Stanborough Park Saturday Series|2007-10-13|Happy Herts|L|
+17|16|1|Northaw District Event|2007-11-11|Happy Herts|L|
+18|17|1|HH Sprint Champs|2008-01-05|Happy Herts|L|
+19|18|1|Ashridge Saturday Series|2008-02-02|Happy Herts|L|
+20|19|1|Wormley Saturday Series|2008-03-08|Happy Herts|L|
+21|20|1|Whippendell FROLICS|2008-07-27|Happy Herts|L|
+22|21|1|Sherrards Park Wood District Event|2008-09-07|Happy Herts|R|
+23|22|1|Rothamsted Saturday Series|2008-10-04|Happy Herts|L|
+24|23|1|Verulamium Saturday Series|2008-11-01|Happy Herts|L|
+25|23|3|Verulamium Score|2008-11-01|Happy Herts|L|
+26|24|1|Phasels Wood Saturday Series|2008-12-06|Happy Herts|L|
+27|25|1|JOK Chasing Sprint 2009|2009-02-21|JOK|N|
+28|26|1|Southern Champs 2009|2009-02-22|Happy Herts|N|
+29|28|1|Cassiobury Saturday Series|2009-03-07|Happy Herts|L|
+30|29|1|Mardley Heath Saturday Series|2009-04-25|Happy Herts|L|
+31|31|1|Highfield Park Saturday Series|2009-06-06|Happy Herts|L|
+32|32|1|Highfield Park Sprint|2009-06-06|Happy Herts|L|
+33|33|1|Chorleywood Saturday Series|2009-07-04|Happy Herts|L|
+34|34|1|One & Other Plinth O|2009-09-11|Happy Herts|I|
+35|35|1|Stanborough Saturday Series|2009-09-26|Happy Herts|L|
+36|37|1|Ashridge Yvette Baker Trophy|2009-10-11|Happy Herts|R|
+37|37|1|Ashridge YBT Green Course|2009-10-11|Happy Herts|R|
+38|38|1|Rothamsted Saturday Series|2009-11-07|Happy Herts|L|
+39|39|1|Verulamium Saturday Series|2009-12-12|Happy Herts|L|
+40|40|1|Trent Park Boxing Day Score|2009-12-26|Happy Herts|L|
+41|41|1|Broxbourne Saturday Series|2010-02-06|Happy Herts|L|
+42|42|1|Burnham Beeches|2010-02-28|Happy Herts|R|
+43|43|1|Northaw Saturday Series|2010-03-13|Happy Herts|L|
+44|47|1|Highfield Park Saturday Series|2010-05-08|Happy Herts|L|
+45|48|1|Highfield Park Sprint|2010-05-08|Happy Herts|L|
+46|49|1|Highfield Park Saturday Series|2010-06-05|Happy Herts|L|
+47|25|1|South East Relays|2010-06-06|Happy Herts|R|
+48|50|1|HH Street-O|2010-06-29|Happy Herts|L|
+49|51|1|Habs Saturday Series|2010-07-03|Happy Herts|L|
+50|35|1|Stanborough Park Sprint|2010-07-13|Happy Herts|L|
+51|52|2|Heartwood Festival|2010-08-28|Happy Herts|L|
+52|53|2|St Albans Urban Race|2010-09-12|Happy Herts|L|
+53|54|1|Verulamium Saturday Series|2010-10-02|Happy Herts|L|
+54|55|1|Stanborough Saturday Series|2010-11-06|Happy Herts|L|
+55|56|1|Whippendell SQE|2010-11-20|Happy Herts|L|
+56|57|1|British Schools Champs 2010|2010-11-21|Happy Herts|N|
+57|58|1|Ashridge Ace of Herts SE Long Champs|2011-01-23|Happy Herts|R|
+58|59|1|Sherrardspark Saturday Series|2011-02-05|Happy Herts|L|
+59|60|1|Phasels Wood Saturday Series|2011-03-05|Happy Herts|L|
+60|61|1|Boxmoor Saturday Series|2011-03-26|Happy Herts|L|
+61|62|2|Herts ARC 2011 Race 2: St Albans|2011-04-12|Happy Herts|L|
+62|63|2|Herts ARC 2011 Race 3: St Albans|2011-04-19|Happy Herts|L|
+63|64|2|Herts ARC 2011 Race 4: Hatfield|2011-04-26|Happy Herts|L|
+64|65|2|		Herts ARC 2011 Race 5: Ellenbrook|2011-05-03|Happy Herts|L|
+65|66|1|Mardley Saturday Series|2011-05-07|Happy Herts|L|
+66|67|2|Herts ARC 2011 Race 6: Salisbury Village|2011-05-10|Happy Herts|L|
+67|68|2|Herts ARC 2011 Race 9: St Albans|2011-05-31|Happy Herts|L|
+68|69|1|Highfield Park Saturday Series|2011-06-04|Happy Herts|L|
+69|56|1|Whippendell FROLICS|2011-07-02|Happy Herts|L|
+70|70|2|Herts ARC 2011 Race 17: Sandridge and Jersey Farm|2011-07-26|Happy Herts|L|
+71|71|1|HH Sprint Champs - Stanborough|2011-09-03|Happy Herts|L|
+72|72|1|Verulamium Saturday Series|2011-10-01|Happy Herts|L|
+73|73|1|HABS Saturday Series|2011-11-05|Happy Herts|L|
+75|74|3|Trent Park Boxing Day Score|2011-12-26|Happy Herts|L|
+76|75|1|Ace of Herts|2012-01-22|Happy Herts|R|
+77|76|1|Ashridge Saturday Series|2012-02-04|Happy Herts|L|
+79|78|1|Sherrardspark Saturday Series|2012-03-03|Happy Herts|L|
+80|79|1|Stanborough Saturday Series|2012-03-31|Happy Herts|L|
+81|80|2|HARC 2012 Race 01: De Havilland Campus|2012-04-17|Happy Herts|L|
+82|81|2|HARC 2012 Race 02: Ellenbrook Fields|2012-04-24|Happy Herts|L|
+83|82|1|Ellenbrook Fields Saturday Series|2012-04-28|Happy Herts|L|
+84|83|2|HARC 2012 Race 03: Hatfield OOM|2012-05-01|Happy Herts|L|
+85|84|2|HARC 2012 Race 04: Batchwood OOM|2012-05-08|Happy Herts|L|
+86|85|2|HARC 2012 Race 05: Batchwood OOM|2012-05-15|Happy Herts|L|
+87|86|2|HARC 2012 Race 06: Bernards Heath|2012-05-22|Happy Herts|L|
+88|87|1|Mardley Heath Saturday Series|2012-05-26|Happy Herts|L|
+89|88|2|HARC 2012 Race 07: London Colney|2012-05-29|Happy Herts|L|
+90|89|2|HARC 2012 Race 08: Harpenden|2012-06-12|Happy Herts|L|
+91|90|2|HARC 2012 Race 09: Harpenden SW|2012-06-19|Happy Herts|L|
+92|91|2|HARC 2012 Race 10: Harpenden East|2012-06-26|Happy Herts|L|
+93|92|2|HARC 2012 Race 11: How Wood|2012-07-03|Happy Herts|L|
+94|93|1|Highfield Park Saturday Series|2012-07-07|Happy Herts|L|
+95|94|2|HARC 2012 Race 12: Greenwood Park|2012-07-10|Happy Herts|L|
+96|95|2|HARC 2012 Race 13: Heartwood|2012-07-17|Happy Herts|L|
+97|96|2|HARC 2012 Race 15: St Albans|2012-08-01|Happy Herts|L|
+98|97|2|HARC 2012 Race 14: Sandridge|2012-07-24|Happy Herts|L|
+99|98|2|HARC 2012 Race 16: Verulamium|2012-08-07|Happy Herts|L|
+100|99|2|HARC 2012 Race 17: St Albans West|2012-08-14|Happy Herts|L|
+102|101|2|HARC 2012 Race 19: Highfield Park|2012-08-28|Happy Herts|L|
+103|102|1|Verulamium Saturday Series|2012-09-01|Happy Herts|L|
+104|105|2|HH Sprint Champs|2012-09-25|Happy Herts|L|
+105|106|1|Ellenbrook Fields Saturday Series|2012-10-06|Happy Herts|L|
+106|107|1|Jack of Herts - Northaw|2012-10-14|Happy Herts|R|
+107|108|1|Gadebridge Saturday Series|2012-11-03|Happy Herts|L|
+108|109|1|Heartwood Saturday Series|2012-12-01|Happy Herts|L|
+109|110|1|Verulamium HH Night Champs; Yellow|2013-01-05|Happy Herts|N|
+110|111|3|Verulamium HH Night Champs; Score|2013-01-05|Happy Herts|L|
+111|113|1|Phasels Wood Saturday League|2013-02-02|Happy Herts|L|
+112|114|1|Ace of Herts - Burnham Beeches|2013-02-24|Happy Herts|R|Please see separate event for the Short Blue course.
+113|114|1|Ace of Herts - Short Blue only|2013-02-24|Happy Herts|R|Short blue course only
+115|116|1|Ashridge Saturday League|2013-03-02|Happy Herts|L|
+116|117|1|Nomansland Saturday League|2013-04-06|Happy Herts|L|
+122|119|1|St Albans City Race|2013-04-28|Happy Herts|R|
+123|120|2|Herts ARC 2013 Race 1: St Albans|2013-05-07|Happy Herts|L|
+124|121|1|Chipperfield Saturday League|2013-05-11|Happy Herts|L|
+125|122|2|Herts ARC 2013 Race 2: St Albans|2013-05-14|Happy Herts|L|
+126|123|2|Herts ARC 2013 Race 3: Handside WGC|2013-05-21|Happy Herts|L|
+127|124|2|Herts ARC 2013 Race 4: Sherrards Park Wood|2013-05-28|Happy Herts|L|
+128|125|1|Highfield Park Saturday League|2013-06-01|Happy Herts|L|
+129|126|2|Herts ARC 2013 Race 5: Jersey Farm|2013-06-04|Happy Herts|L|
+130|127|2|Herts ARC 2013 Race 6: Jersey Farm|2013-06-11|Happy Herts|L|
+131|128|2|Herts ARC 2013 Race 7: Harpenden|2013-06-18|Happy Herts|L|
+132|129|2|Herts ARC 2013 Race 8: Rothamsted|2013-06-25|Happy Herts|L|
+133|130|1|Habs Saturday League|2013-06-29|Happy Herts|L|
+134|131|2|Herts ARC 2013 Race 11: Boxmoor and Gadebridge|2013-07-16|Happy Herts|L|
+135|132|2|Herts ARC 2013 Race 10: Verulamium|2013-07-09|Happy Herts|L|
+136|133|2|Herts ARC 2013 Race 12: Boxmoor|2013-07-23|Happy Herts|L|
+137|134|2|Herts ARC 2013 Race 14: Ellenbrook|2013-08-13|Happy Herts|L|
+138|135|2|Herts ARC 2013 Race 15: Chiswell Green|2013-08-20|Happy Herts|L|
+139|136|2|Herts ARC 2013 Race 16: Greenwood Park|2013-08-27|Happy Herts|L|
+140|137|2|HH Sprint Champs - Highfield Park|2013-09-03|Happy Herts|L|
+141|138|1|Sherrardspark Wood Saturday League|2013-09-07|Happy Herts|L|
+142|139|2|Herts Winter ARC - Welwyn Village|2013-09-17|Happy Herts|T|
+143|140|1|Verulamium Saturday League|2013-10-05|Happy Herts|L|
+144|141|1|Jack of Herts: Northaw|2013-10-20|Happy Herts|L|
+145|142|1|Stanborough Saturday League|2013-11-09|Happy Herts|L|
+146|144|2|Herts Winter ARC - St Albans|2013-11-19|Happy Herts|L|
+148|147|1|Rothamsted Saturday League|2013-12-07|Happy Herts|L|
+149|153|1|Ashridge Ace of Herts 2014|2014-01-19|Happy Herts|R|
+150|154|2|Herts Winter ARC: London Colney|2014-01-21|Happy Herts|L|
+151|158|1|Nomansland Saturday League|2014-02-01|Happy Herts|L|
+152|159|1|Northaw Saturday League|2014-03-01|Happy Herts|L|
+153|161|3|Boxing Day Score: Trent Park|2013-12-26|HH|L|
+154|162|1|Chipperfield Saturday League|2014-04-05|HH|L|
+155|163|2|Herts Winter ARC: Hertford|2014-04-15|HH|L|
+156|164|1|SEOA Sprint Champs: Oaklands College|2014-04-26|HH|R|
+157|165|1|SEOA Middle Champs: Mardley Heath|2014-04-27|HH|R|
+158|166|1|Cassiobury Saturday Series|2014-05-10|HH|L|
+159|167|2|Herts ARC 2014: How Wood|2014-05-13|HH|L|
+160|168|2|Herts ARC 2014: Highfield Park and The Camp|2014-05-20|HH|L|
+161|170|2|Herts ARC 2014: Highfield Park|2014-05-27|HH|L|
+162|171|2|Herts ARC 2014: Hemel Hempstead|2014-06-03|HH|L|
+163|172|1|Habs Saturday Series|2014-06-07|HH|L|
+164|173|2|Herts ARC 2014: Welham Green|2014-06-17|HH|L|
+165|174|1|Whippendell GLOSS|2014-07-05|HH|L|
+166|175|2|Herts ARC 2014: Marshalswick|2014-07-15|HH|L|
+167|176|2|Herts ARC 2014: Jersey Farm|2014-07-22|HH|L|
+168|177|2|Herts ARC 2014: Welwyn Garden City|2014-08-05|HH|L|
+169|178|2|Herts ARC 2014: St Albans South|2014-08-19|HH|L|
+170|179|2|Herts ARC 2014: Verulamium|2014-08-26|HH|L|
+171|180|2|Oaklands College AGM Sprint|2014-09-02|HH|S|
+172|181|1|Ellenbrook Saturday League|2014-09-06|HH|L|
+173|183|1|Verulamium Saturday League|2014-10-04|HH|L|
+174|185|1|Stanborough Saturday League|2014-11-01|HH|L|
+175|186|1|Heartwood Saturday League|2014-12-06|HH|L|
