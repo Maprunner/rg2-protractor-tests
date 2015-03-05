@@ -17,6 +17,7 @@ var ManagerPage = function() {
 	this.btnAddMap = element(by.id('btn-add-map'));
 	this.btnMoveMapAndControls = element(by.id('btn-move-map-and-controls'));
   this.btnScoreEvent = element(by.id('btn-score-event'));
+  this.georefs = element(by.id('rg2-georef-selected')).all(by.css('option'));
   
 	this.startManager = function() {
 		// not an angular app so need this
@@ -53,7 +54,7 @@ var ManagerPage = function() {
 		  browser.sleep(2000);
 		}
 	 };
-	 	
+
 	this.addMap = function () {
 	  this.btnAddMap.click();
   	this.dlgConfirmAddMap.element(by.buttonText('Add map')).click();

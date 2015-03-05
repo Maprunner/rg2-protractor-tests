@@ -69,6 +69,9 @@ describe('RG2 draw', function() {
   it('should allow you to select a course', function() {
     draw.courses.get(0).click();
     // change to a different course
+    draw.courses.last().click();
+    draw.names.first().click();
+    // change to a different course again
     draw.courses.get(1).click();
     draw.names.get(1).click();
     draw.addComment('Protractor draw test');

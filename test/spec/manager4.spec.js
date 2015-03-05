@@ -5,10 +5,20 @@ describe('RG2 Manager 4', function() {
   it('should allow you to log on as manager', function() {
  		manager.startManager();
  		manager.login();
+    manager.showCreateTab();
   });
-  
+
+  it('should not allow you to load results with no map', function() {
+    element(by.id('rg2-load-results-file')).click();
+    rg2.acknowledgeWarning("Please load a map file before adding results.");
+  });
+
+  it('should not allow you to load courses with no map', function() {
+    element(by.id('rg2-load-course-file')).click();
+    rg2.acknowledgeWarning("Please load a map file before adding courses.");
+  });
+
 	it('should report invalid results file type', function() {
-  	manager.showCreateTab();
     element(by.id('rg2-event-name')).sendKeys('Event 4-01: Ellenbrook with Milton Rigg results');
 	  element(by.id('rg2-map-selected')).all(by.css('option')).get(2).click();
     manager.enterClubName('HH');

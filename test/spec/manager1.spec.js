@@ -155,5 +155,4 @@ describe('RG2 Manager 1', function() {
     manager.createEvent();
     rg2.acknowledgeWarning('Event 1-01: Ellenbrook has been added with id');
   });
-
 });

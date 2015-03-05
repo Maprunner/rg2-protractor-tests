@@ -1,7 +1,8 @@
 module.exports = function(grunt) {
-  var jsInstrumentList = ['../rg2/js/rg2.js', '../rg2/js/animation.js', '../rg2/js/controls.js', '../rg2/js/courses.js', '../rg2/js/draw.js', '../rg2/js/events.js', '../rg2/js/gpstrack.js',
+  var jsInstrumentList = ['../rg2/js/rg2.js', '../rg2/js/animation.js', '../rg2/js/config.js', '../rg2/js/controls.js', '../rg2/js/canvas.js', '../rg2/js/courses.js', '../rg2/js/draw.js', '../rg2/js/events.js', '../rg2/js/gpstrack.js',
    '../rg2/js/results.js', '../rg2/js/runner.js', '../rg2/js/manager.js', '../rg2/js/control.js', '../rg2/js/course.js', '../rg2/js/event.js', '../rg2/js/map.js', '../rg2/js/result.js',
-   '../rg2/js/utils.js'];
+   '../rg2/js/utils.js', '../rg2/js/handles.js', '../rg2/js/resultparsercsv.js', '../rg2/js/resultparseriofv2.js', '../rg2/js/resultparseriofv3.js', '../rg2/js/resultparser.js',
+   '../rg2/js/courseparser.js', '../rg2/js/managerui.js', '../rg2/js/rg2input.js', '../rg2/js/rg2getjson.js'];
    
   var jsDoNotInstrumentList = ['../rg2/rg2api.php', '../rg2/index.php', '../rg2/js/plugins.js', '../rg2/js/lib/he.js', '../rg2/js/lib/proj4js-compressed.js',
     '../rg2/html/*.html', '../rg2/css/*.css', '../rg2/lang/*.txt', '../rg2/img/*.*'];
@@ -67,12 +68,12 @@ module.exports = function(grunt) {
         }
     },
     
-		protractor_coverage: {
-    	options: {
-      	keepAlive: true,
+    protractor_coverage: {
+      options: {
+        keepAlive: true,
         noColor: false,
         args: {
-        	baseUrl: 'http://localhost:9000'
+          baseUrl: 'http://localhost:9000'
         }
       },
       rg2: {
@@ -86,9 +87,9 @@ module.exports = function(grunt) {
   makeReport: {
     src: 'test/coverage/*.json',
 // html
-    options: {type: 'html', dir: 'test/rg2', print: 'detail'}
+    //options: {type: 'html', dir: 'test/rg2', print: 'detail'}
 // lcov
-    //options: {type: 'lcov', dir: 'test/coverage', print: 'detail'}
+    options: {type: 'lcov', dir: 'test/coverage', print: 'detail'}
   }
 });
 

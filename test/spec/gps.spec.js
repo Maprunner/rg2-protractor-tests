@@ -68,6 +68,11 @@ describe('RG2 GPS', function() {
     // no handles locked
   });
 
+  it('should not allow you to delete the last handle', function() {
+    browser.actions().mouseMove(rg2.map, hEnd).click(protractor.Button.RIGHT).perform();
+    // no handles locked
+  });
+
   it('should allow you to lock the last handle', function() {
     browser.actions().mouseMove(rg2.map, hEnd).mouseDown().mouseUp().perform();
     // hEnd locked

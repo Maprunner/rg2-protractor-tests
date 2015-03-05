@@ -13,11 +13,24 @@ describe('RG2 Manager 2', function() {
  		manager.login();
   });
 
-	it('should upload a georeferenced map', function() {
+	it('should load a map and world file', function() {
 		manager.showMapTab();
 	  element(by.id('rg2-map-name')).clear().sendKeys('Ellenbrook protractor test map georef');
 	  element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jpg');
 	  element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/ellenbrookinvalid.jgw');
+  });
+  
+  it('should let you change the georeferencing method', function() {
+    element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/ellenbrookinvalid.jgw');
+    // select first entry: no georef
+    manager.georefs.first().click();
+    // select last entry: Google
+    manager.georefs.last().click();
+    // select WGS84
+    manager.georefs.get(1).click();
+  });
+
+  it('should upload a georeferenced map', function() {
 	  element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jgw');
 	  manager.addMap();
 		rg2.acknowledgeWarning("has been added");
@@ -81,10 +94,10 @@ describe('RG2 Manager 2', function() {
     manager.enterClubName('HH');
     manager.enterDate('2015-02-03');
     manager.enterLevel(2);
-    element(by.id('rg2-event-comments')).clear().sendKeys('IOF V3 OCAD course file, CSV results, georeferenced');
+    element(by.id('rg2-event-comments')).clear().sendKeys('Comments (optional)');
     element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV3OCADcourses.xml');
     manager.acknowledgeCourseInfo();
-    element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.csv');
+    element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/ellenbrook-missing-headers.csv');
     manager.acknowledgeResultInfo();
     manager.createEvent();
     rg2.acknowledgeWarning('has been added');
