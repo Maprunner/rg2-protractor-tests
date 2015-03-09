@@ -19,7 +19,7 @@ describe('RG2 Manager Edit', function() {
     manager.showEditTab();
 	  element(by.id('rg2-event-selected')).all(by.css('option')).get(1).click();
     element(by.id('rg2-event-name-edit')).sendKeys(':edit');
-    element(by.id('rg2-club-name-edit')).sendKeys(' edit');
+    element(by.id('rg2-club-name-edit')).sendKeys(':edit');
     element(by.id('rg2-event-date-edit')).sendKeys('2014-14-01');
     element(by.id('rg2-event-date-edit')).sendKeys(protractor.Key.ENTER);
     element(by.id('rg2-event-level-edit')).all(by.css('option')).get(1).click();

@@ -49,8 +49,8 @@ specs: [
 		//'test/spec/core.spec.js'
 		//'test/spec/draw.spec.js'
 		//'test/spec/gps.spec.js'
-		//'test/spec/manager1.spec.js'
-		//'test/spec/manager2.spec.js'
+		//'test/spec/manager1.spec.js',
+		//'test/spec/manager2.spec.js',
 		//'test/spec/manager3.spec.js',
 		//'test/spec/manager4.spec.js',
 		//'test/spec/manager5.spec.js'
