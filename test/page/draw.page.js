@@ -4,6 +4,7 @@ var DrawPage = function() {
 	this.drawTab = element(by.id('rg2-draw-tab'));
 	this.btnSaveGPSRoute = element(by.id('btn-save-gps-route'));
   this.btnSaveRoute = element(by.id('btn-save-route'));
+  this.btnAutofit = element(by.id('btn-autofit-gps'));
   this.btnResetDrawing = element(by.id('btn-reset-drawing'));
   this.courses = element(by.id('rg2-course-select')).all(by.css('option'));
   this.names = element(by.id('rg2-name-select')).all(by.css('option'));
@@ -86,7 +87,11 @@ var DrawPage = function() {
 	
 	this.waitThreeSeconds = function () {
 		this.btnThreeSeconds.click();
-	};		
+	};
+	
+	this.autofit = function () {
+	  this.btnAutofit.click();
+	};
 };
 
 module.exports = new DrawPage();

@@ -200,6 +200,10 @@ describe('RG2 GPS', function() {
     draw.names.get(1).click();
     draw.addComment('Protractor test comment');
 	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.tcx');
+  });
+  
+  it('should allow you to autofit the route', function() {
+	  draw.autofit();
 	  draw.saveGPSRoute();
     browser.sleep(2000);
 		rg2.acknowledgeWarning("Your route has been saved");
