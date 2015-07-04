@@ -18,19 +18,32 @@ describe('RG2 Manager 4', function() {
     rg2.acknowledgeWarning("Please load a map file before adding courses.");
   });
 
-	it('should report invalid results file type', function() {
+  it('should load a map and world file', function() {
+    manager.showMapTab();
+    element(by.id('rg2-map-name')).clear().sendKeys('Ellenbrook protractor test map georef');
+    element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jpg');
+    element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jgw');
+    manager.addMap();
+    rg2.acknowledgeWarning("has been added");
+  });
+
+	it('should start creating an event', function() {
+    manager.showCreateTab();
     element(by.id('rg2-event-name')).sendKeys('Event 4-01: Ellenbrook with Milton Rigg results');
-	  element(by.id('rg2-map-selected')).all(by.css('option')).get(2).click();
+	  element(by.id('rg2-map-selected')).all(by.css('option')).get(1).click();
     manager.enterClubName('HH');
     manager.enterDate('2015-04-01');
     manager.enterLevel(3);
     element(by.id('rg2-event-comments')).sendKeys('IOF V3 course file, IOF V2 results, not georeferenced');
 	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV3courses.xml');
 	  manager.acknowledgeCourseInfo();
+  });
+
+  it('should report invalid results file type', function() {
 	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/verulamium.gpx');
 		rg2.acknowledgeWarning('Results file type is not recognised');
 	});
-	
+
 	it('should report invalid results file version', function() {
 	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV1results.xml');
 		rg2.acknowledgeWarning('Invalid IOF file format');
@@ -51,7 +64,7 @@ describe('RG2 Manager 4', function() {
 	it('should set up Event 4-02: IOF V2 results: IOF V3 courses: not georef', function() {
   	manager.showCreateTab();
     element(by.id('rg2-event-name')).clear().sendKeys('Event 4-02: Ellenbrook with Milton Rigg results');
-	  element(by.id('rg2-map-selected')).all(by.css('option')).get(2).click();
+	  element(by.id('rg2-map-selected')).all(by.css('option')).get(1).click();
     manager.enterClubName('HH');
     manager.enterDate('2015-04-02');
     manager.enterLevel(4);

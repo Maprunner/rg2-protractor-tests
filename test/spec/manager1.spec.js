@@ -115,14 +115,23 @@ describe('RG2 Manager 1', function() {
     manager.createEvent("Check your course XML file.");
   });
 
-  it('should report course file validation errors', function() {
+  it('should report invalid course file type', function() {
     element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/highfield.jpg');
     // invalid file type: error reported
     rg2.acknowledgeWarning("File is not a valid XML course file");
+  });
+
+  it('should report course file validation errors: V1.0.0', function() {
     element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV1courses.xml');
     rg2.acknowledgeWarning('Invalid IOF file format. Version 1.0.0 not supported.');
+  });
+
+  it('should report course file validation errors: CourseData missing', function() {
     element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV2invalidcourses.xml');
     rg2.acknowledgeWarning('CourseData element missing.');
+  });
+
+  it('should accept a valid course file', function() {
     element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV2courses.xml');
     manager.acknowledgeCourseInfo();
   });

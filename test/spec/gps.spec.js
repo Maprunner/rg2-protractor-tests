@@ -204,6 +204,17 @@ describe('RG2 GPS', function() {
   
   it('should allow you to autofit the route', function() {
 	  draw.autofit();
+  });
+  
+  it('should allow you to adjust the autofit offset', function() {
+    draw.adjustOffset(10);
+	  draw.adjustOffset('+');
+    draw.adjustOffset(0);
+    draw.adjustOffset('-');
+    draw.adjustOffset('+');
+  });
+  
+  it('should allow you to save the adjusted route', function() {
 	  draw.saveGPSRoute();
     browser.sleep(2000);
 		rg2.acknowledgeWarning("Your route has been saved");

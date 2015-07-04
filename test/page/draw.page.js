@@ -16,7 +16,8 @@ var DrawPage = function() {
 	this.btnThreeSeconds = element(by.id('btn-three-seconds'));
 	this.comments = element(by.id('rg2-new-comments'));
 	this.file = element(by.id('rg2-load-gps-file'));
-	
+	this.offsetSpinner = element(by.id('rg2-offset-spinner'));
+
 	this.showDrawTab = function() {
 		this.drawTab.click();
 		expect(this.body.isDisplayed()).toBe(true);
@@ -92,6 +93,22 @@ var DrawPage = function() {
 	this.autofit = function () {
 	  this.btnAutofit.click();
 	};
+	
+	this.adjustOffset = function(val) {
+    switch (val) {
+    case '+':
+      this.offsetSpinner.element(by.css('.ui-spinner-up')).click();
+      break;
+    case '-':
+      this.offsetSpinner.element(by.css('.ui-spinner-down')).click();
+      break;
+    default:
+      this.offsetSpinner.element(by.css('input')).clear().sendKeys(val);
+      // need to click to get it accepted: not ideal but it works
+      this.offsetSpinner.element(by.css('.ui-spinner-down')).click();
+      break;
+   }
+  };
 };
 
 module.exports = new DrawPage();

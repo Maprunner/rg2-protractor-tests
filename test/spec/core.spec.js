@@ -213,6 +213,12 @@ describe('RG2', function() {
     expect(element(by.css('.rg2-options-dialog')).element(by.css('.ui-dialog-title')).getText()).toEqual('Brukervalg');
   });
 
+  it('should start up in French', function() {
+    rg2.loadRG2("?lang=fr");
+    rg2.showOptionsDialog();
+    expect(element(by.css('.rg2-options-dialog')).element(by.css('.ui-dialog-title')).getText()).toEqual('Options de configuration');
+  });
+
   it('should set the map intensity to 0%', function() {
     rg2.spin('map intensity', 0);
     rg2.hideOptionsDialog();
