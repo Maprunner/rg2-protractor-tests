@@ -3,19 +3,22 @@
   "description": "Routegadget 2 Test",
   "repository": "https://github.com/Maprunner/rg2-test-data",
   "devDependencies": {
+    "chromedriver": "^2.29.0",
     "grunt": "~0.4.5",
-    "grunt-contrib-nodeunit": "~0.2.2",
-    "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-clean": "~0.5.0",
-    "grunt-newer": "~0.6.1",
-    "grunt-sync": "0.0.5",
-    "load-grunt-tasks": "~0.2.1",
-    "grunt-text-replace": "~0.3.10",
-    "grunt-karma": "~0.9.0",
-    "grunt-protractor-coverage": "~0.2.13",
-    "grunt-istanbul": "~0.3.0",
     "grunt-contrib-connect": "~0.9.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-nodeunit": "~0.2.2",
     "grunt-coveralls": "~1.0.0",
-    "protractor": "~1.4.0"
+    "grunt-istanbul": "~0.3.0",
+    "grunt-karma": "^0.12.2",
+    "grunt-newer": "~0.6.1",
+    "grunt-protractor-coverage": "~0.2.13",
+    "grunt-sync": "0.0.5",
+    "grunt-text-replace": "~0.3.10",
+    "jasmine-spec-reporter": "^4.1.0",
+    "karma": "^1.6.0",
+    "load-grunt-tasks": "~0.2.1",
+    "protractor": "^5.1.1"
   }
 }

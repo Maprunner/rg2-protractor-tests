@@ -8,7 +8,7 @@ describe('RG2', function() {
   var cbxShowScoreCourse = element.all(by.css('.showscorecourse'));
 
   it('should load RG2', function() {
-  	rg2.loadRG2();
+  	rg2.loadRG2('', 'Routegadget 2');
   });
 
   it('should show and hide the about dialog with no event selected', function() {
@@ -21,7 +21,7 @@ describe('RG2', function() {
   it('should select a Mardley Heath normal event', function() {
     rg2.getEvent('143');
     // pause to allow touch drag, pinch zoom and mouse wheel scroll manual input
-    browser.sleep(15000);
+    browser.sleep(10000);
     rg2.showAboutDialog();
     expect(element(by.id('rg2-event-stats')).getText()).toContain('SEOA Middle Champs: Mardley Heath: 2014-04-27');
     rg2.hideAboutDialog();
@@ -36,7 +36,7 @@ describe('RG2', function() {
   it('should display and hide the info panel', function() {
     rg2.hideInfoPanel();
 		rg2.showInfoPanel();
-		rg2.resizeHideInfoPanel();
+    rg2.resizeHideInfoPanel();
     rg2.resizeShowInfoPanel();
   });
   
@@ -45,7 +45,6 @@ describe('RG2', function() {
     rg2.zoomIn();
     rg2.zoomOut();
     rg2.resetZoom();
-
   });  
 
   it('should ignore a right click', function() {
@@ -99,7 +98,7 @@ describe('RG2', function() {
   });
 
   it('should load a Highfield event and show a course and routes', function() {
-  	rg2.loadRG2('#128&course=4&route=48,74');
+  	rg2.loadRG2('#128&course=4&route=48,74', 'Highfield Park Saturday League 2013-06-01');
     expect(rg2.trackNames.isDisplayed()).toBe(true);
     rg2.zoomIn();
     rg2.zoomIn();
@@ -208,13 +207,13 @@ describe('RG2', function() {
   });
 
   it('should start up in Norwegian', function() {
-    rg2.loadRG2("?lang=no");
+    rg2.loadRG2("?lang=no", 'Routegadget 2');
     rg2.showOptionsDialog();
     expect(element(by.css('.rg2-options-dialog')).element(by.css('.ui-dialog-title')).getText()).toEqual('Brukervalg');
   });
 
   it('should start up in French', function() {
-    rg2.loadRG2("?lang=fr");
+    rg2.loadRG2("?lang=fr", 'Routegadget 2');
     rg2.showOptionsDialog();
     expect(element(by.css('.rg2-options-dialog')).element(by.css('.ui-dialog-title')).getText()).toEqual('Options de configuration');
   });
@@ -225,7 +224,7 @@ describe('RG2', function() {
   });
 
   it('should select a Trent Park score event and warn about 0% map intensity', function() {
-    rg2.loadRG2('#153');
+    rg2.loadRG2('#153', 'Boxing Day Score: Trent Park 2013-12-26');
     rg2.acknowledgeWarning('Your saved settings have 0% map intensity so the map is invisible.');
     rg2.showOptionsDialog();
     rg2.spin('map intensity', 100);

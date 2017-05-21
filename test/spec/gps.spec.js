@@ -14,7 +14,7 @@ describe('RG2 GPS', function() {
   var h2 = {x:716, y:83};
   
 	it('should allow you to show the draw tab', function() {
-   	rg2.loadRG2('#143');
+   	rg2.loadRG2('#143', 'Verulamium Saturday League 2013-10-05');
     rg2.checkTitle('Verulamium Saturday League 2013-10-05');
     draw.showDrawTab();
   });
@@ -27,19 +27,16 @@ describe('RG2 GPS', function() {
 
   it('should warn about a missing file', function() {
 	  draw.loadGPSFile(rg2.dir + '/test/data/verulamium.abc');
-	  draw.saveGPSRoute();
 		rg2.acknowledgeWarning("Unable to open GPS file");
   });
 
   it('should warn about an invalid file', function() {
-	  draw.loadGPSFile(rg2.dir + '/test/data/invalid.gpx');
-	  draw.saveGPSRoute();
+    draw.loadGPSFile(rg2.dir + '/test/data/invalid.gpx');
 		rg2.acknowledgeWarning("File is not valid XML");
   });
 
   it('should warn about wrong file type', function() {
 	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.csv');
-	  draw.saveGPSRoute();
 		rg2.acknowledgeWarning("File type not recognised");
   });
 
@@ -252,26 +249,41 @@ describe('RG2 GPS', function() {
 		rg2.acknowledgeWarning("Your route has been saved");
   });
 
-  it('should allow you to display all routes for this event', function() {
+  it('should allow you to display the results tab', function() {
     result.showResultsTab();
+  });
+  
+  it('should allow you to open the results list', function() {
     result.openResultsList(0);
+  });
+  
+  it('should allow you to display all routes for this course', function() {
     expect(rg2.trackNames.isDisplayed()).toBe(false);
     cbxAllCourseTracks.first().click();
     expect(rg2.trackNames.isDisplayed()).toBe(true);
+  });
+
+  it('should allow you to hide all routes for this course', function() {
     cbxAllCourseTracks.first().click();
     expect(rg2.trackNames.isDisplayed()).toBe(false);
   });
 
   it('should select a Verulamium score event', function() {
-    rg2.loadRG2();
-    rg2.getEvent('103');
+   	rg2.loadRG2('#143', 'Verulamium Saturday League 2013-10-05');
+    rg2.checkTitle('Verulamium Saturday League 2013-10-05');
     draw.showDrawTab();
   });
-  
-  it('should allow you to upload a GPX file', function() {
+
+  it('should allow you to select a course', function() {
     draw.courses.get(1).click();
+  });
+
+  it('should allow you to select a name', function() {
     draw.names.get(2).click();
-	  draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
+  });
+
+  it('should allow you to upload a GPX file', function() {
+    draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
   });
   
   it('should allow you change tabs when uploading a score route', function() {

@@ -75,7 +75,7 @@ describe('RG2 Manager 2', function() {
     manager.showCreateTab();
     element(by.id('rg2-event-name')).clear().sendKeys('Event 2-02: Ellenbrook');
     element(by.id('rg2-map-selected')).all(by.css('option')).get(1).click();
-    manager.enterClubName('HH');
+    manager.enterClubName('HHOC');
     manager.enterDate('2015-02-02');
     manager.enterLevel(2);
     element(by.id('rg2-event-comments')).clear().sendKeys('IOF V2 course file, CSV results, georeferenced');

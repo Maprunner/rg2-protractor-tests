@@ -5,7 +5,7 @@ module.exports = function(grunt) {
    '../rg2/js/courseparser.js', '../rg2/js/managerui.js', '../rg2/js/rg2input.js', '../rg2/js/rg2getjson.js', '../rg2/js/rg2ui.js'];
    
   var jsDoNotInstrumentList = ['../rg2/rg2api.php', '../rg2/index.php', '../rg2/js/plugins.js', '../rg2/js/lib/he.js', '../rg2/js/lib/proj4js-compressed.js',
-    '../rg2/html/*.html', '../rg2/css/*.css', '../rg2/lang/*.txt', '../rg2/img/*.*'];
+    '../rg2/html/*.html', '../rg2/css/*.css', '../rg2/lang/*.js', '../rg2/img/*.*'];
   
   var kartatFiles = ['test/kartat/kisat.txt',
   										'test/kartat/kartat.txt',

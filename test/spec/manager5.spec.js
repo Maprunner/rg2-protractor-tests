@@ -46,7 +46,7 @@ describe('RG2 Manager 5', function() {
 	});
 
   it('should load the event just created', function() {
-    rg2.loadRG2();
+    rg2.loadRG2('', 'Routegadget 2');
     rg2.getNewestEvent();
     rg2.checkTitle('Event 5-01: London Colney 2015-05-01');
   });

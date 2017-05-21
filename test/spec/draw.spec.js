@@ -4,7 +4,7 @@ describe('RG2 draw', function() {
 	var course = require('../page/draw.page.js');
 
   it('should allow you to load a Hertford event with no results', function() {
-    rg2.loadRG2();
+    rg2.loadRG2('', 'Routegadget 2');
     rg2.getEvent('141');
     rg2.checkTitle('Herts Winter ARC: Hertford 2014-04-15');
     draw.showDrawTab();
@@ -39,14 +39,14 @@ describe('RG2 draw', function() {
     browser.actions().mouseMove(rg2.map, {x:950, y:150}).mouseDown().mouseUp().perform();
     browser.actions().mouseMove(rg2.map, {x:1100, y:500}).mouseDown().mouseUp().perform();
     // test x close enough but y not close enough
-    browser.actions().mouseMove(rg2.map, {x:929, y:400}).mouseDown().mouseUp().perform();
-    browser.actions().mouseMove(rg2.map, {x:929, y:424}).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, {x:892, y:350}).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, {x:892, y:398}).mouseDown().mouseUp().perform();
   });
   
    it('should allow you to undo even when you have finished', function() {
     draw.undo();
     browser.actions().mouseMove(rg2.map, {x:1000, y:600}).mouseDown().mouseUp().perform();
-    browser.actions().mouseMove(rg2.map, {x:929, y:424}).mouseDown().mouseUp().perform();
+    browser.actions().mouseMove(rg2.map, {x:892, y:398}).mouseDown().mouseUp().perform();
   });
   
    it('should allow you to save your route', function() {
@@ -55,7 +55,7 @@ describe('RG2 draw', function() {
   });
  
 	it('should load a Mardley event and show the draw tab', function() {
- 		rg2.loadRG2('#157');
+ 		rg2.loadRG2('#157', 'SEOA Middle Champs: Mardley Heath 2014-04-27');
     rg2.checkTitle('SEOA Middle Champs: Mardley Heath 2014-04-27');
     draw.showDrawTab();
   });

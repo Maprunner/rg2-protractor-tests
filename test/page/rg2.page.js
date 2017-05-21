@@ -12,6 +12,8 @@ var RG2Page = function() {
   this.btnReset = element(by.id('btn-reset'));
   this.btnToggleControls = element(by.id('btn-toggle-controls'));
   this.aboutDialog = element(by.id('rg2-about-dialog'));
+  this.stats = element(by.id('rg2-event-stats'));
+  this.managerLink = element(by.id('rg2-manager-link'));
   this.optionControls = element(by.id('rg2-option-controls'));
   this.body = element(by.id('rg2-event-list'));
   this.eventsTab = element(by.id('rg2-events-tab'));
@@ -32,8 +34,14 @@ var RG2Page = function() {
 	this.dir = 'c:/xampp/htdocs/rg2-protractor-tests';
 	this.eventTitle = element(by.id('rg2-event-title'));
   this.eventlist = element(by.id('rg2-event-list')).all(by.css('li'));
-
-	this.loadRG2 = function(hash) {
+  
+  this.hasClass = function (element, cls) {
+    return element.getAttribute('class').then(function (classes) {
+        return classes.split(' ').indexOf(cls) !== -1;
+    });
+  };
+  
+	this.loadRG2 = function(hash, title) {
 		var url;
 		if (hash !== undefined) {
 			url = 'http://localhost/rg2-protractor-tests/instrumented/rg2/' + hash;
@@ -47,7 +55,7 @@ var RG2Page = function() {
 		browser.get(url);
   	browser.manage().window().setSize(1280, 800);
  		browser.sleep(1000);
-    expect(browser.getTitle()).toEqual('Routegadget 2');
+    expect(browser.getTitle()).toEqual(title);
  		if (!hash) {
  			expect(element(by.id('rg2-event-list')).isDisplayed()).toBe(true);
  		};
@@ -93,12 +101,17 @@ var RG2Page = function() {
 		expect(this.body.isDisplayed()).toBe(true);
 	};
 
-	this.showAboutDialog = function() {
+	this.showAboutDialog = function(eventLoaded) {
     expect(this.aboutDialog.isDisplayed()).toBe(false);
     this.btnAbout.click();
     expect(this.aboutDialog.isDisplayed()).toBe(true);
     expect(element(by.css('.rg2-about-dialog')).element(by.css('.ui-dialog-title')).getText()).toContain('RG2 Version');
+    expect(this.managerLink.isDisplayed()).toBe(true);
 	};
+
+  this.hasStats = function () {
+    expect(this.stats.isDisplayed()).toBe(true);
+  }
 
 	this.hideAboutDialog = function() {
     expect(this.aboutDialog.isDisplayed()).toBe(true);

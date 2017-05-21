@@ -50,8 +50,13 @@ var ManagerPage = function() {
 		if (expectedError) {
 		  rg2.acknowledgeWarning(expectedError);
 		} else {
+      browser.sleep(1000);
   	  this.dlgConfirmCreateEvent.element(by.buttonText('Create event')).click();
 		  browser.sleep(2000);
+      // leaves us in the new event in a new tab so need to go to previous tab
+      browser.getAllWindowHandles().then(function (handles) {
+        browser.switchTo().window(handles[0]);
+      });
 		}
 	 };
 
@@ -77,7 +82,7 @@ var ManagerPage = function() {
   
   
   this.enterClubName = function (name) {
-    element(by.id('rg2-club-name')).clear().sendKeys(name);
+    element(by.id('rg2-club-name')).clear().sendKeys(name).sendKeys(protractor.Key.ENTER);
   };
 
 	this.addMapCancel = function () {

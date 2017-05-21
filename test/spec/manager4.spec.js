@@ -1,7 +1,7 @@
 describe('RG2 Manager 4', function() {
 	var rg2 = require('../page/rg2.page.js');
 	var manager = require('../page/manager.page.js');
-    
+
   it('should allow you to log on as manager', function() {
  		manager.startManager();
  		manager.login();
@@ -89,11 +89,13 @@ describe('RG2 Manager 4', function() {
   it('should report a missing ResultList in XML results', function() {
     element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV2invalidresults.xml');
     rg2.acknowledgeWarning('ResultList element missing.');
+		manager.acknowledgeResultInfo();
   });
-  
+
 	it('should add results for Event 4-02', function() {
 	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV3results.xml');
 		manager.acknowledgeResultInfo();
+    manager.enterClubName('HHOC');
 		manager.createEvent();
 		rg2.acknowledgeWarning('has been added');
 	});
