@@ -6,7 +6,7 @@ var ResultPage = function() {
   this.showTrack = element(by.id('rg2-result-list')).all(by.css('.showtrack'));
   this.showCourse = element(by.id('rg2-result-list')).all(by.css('.showcourse'));
   this.showScoreCourse = element(by.id('rg2-result-list')).all(by.css('.showscorecourse'));
-  this.table = element(by.css('.resulttable'));
+  //this.table = element(by.id('rg2-result-list')).all(by.css('.resulttable'));
     
 	this.showResultsTab = function() {
     this.resultsTab.click();
@@ -14,13 +14,15 @@ var ResultPage = function() {
 	};
 	
 	this.openResultsList = function (index) {
+    table = element(by.id('table-' + (index + 1)));
 		// click on requested results
 		this.list.get(index).click();
 		// if they are not displayed then we have just closed the list so click again
-		if (!this.table.isDisplayed()) {
+    browser.sleep(500);
+		if (!table.isDisplayed()) {
 		  this.list.get(index).click();
 		}
-		expect(this.table.isDisplayed()).toBe(true);
+    expect(table.isDisplayed()).toBe(true);
 	};
 
 };

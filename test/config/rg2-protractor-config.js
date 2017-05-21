@@ -23,7 +23,7 @@ seleniumPort: 3010,//3010,
 // find chromedriver. This will be passed to the selenium jar as
 // the system property webdriver.chrome.driver. If null, selenium will
 // attempt to find chromedriver using PATH.
-chromeDriver: '../../node_modules/protractor/chromedriver.exe',
+chromeDriver: '../../node_modules/chromedriver/lib/chromedriver/chromedriver.exe',
 // If true, only chromedriver will be started, not a standalone selenium.
 // Tests for browsers other than chrome will not run.
 //chromeOnly: true,
@@ -46,15 +46,15 @@ allScriptsTimeout: 30000,
 // Spec patterns are relative to the location of this config.
 specs: [
     'test/spec/*.spec.js'
-		//'test/spec/core.spec.js'
+		//'test/spec/core.spec.js',
 		//'test/spec/draw.spec.js'
 		//'test/spec/gps.spec.js'
-		//'test/spec/manager1.spec.js',
+		//'test/spec/manager1.spec.js'
 		//'test/spec/manager2.spec.js',
 		//'test/spec/manager3.spec.js',
 		//'test/spec/manager4.spec.js',
-		//'test/spec/manager5.spec.js'
-		//'test/spec/manageredit.spec.js'
+		//'test/spec/manager5.spec.js',
+		//'test/spec/manageredit.spec.js',
 		//'test/spec/replay.spec.js'
 		],
 exclude: [],
@@ -73,11 +73,16 @@ capabilities: {
 jasmineNodeOpts: {
 	isVerbose: true,
 	showColors: true,
-  includeStackTrace: false 
+  includeStackTrace: false
 	},
 
 maxSessions: 1,
 
-params: {}
+params: {},
+
+onPrepare: function(){
+  var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+  jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: 'all', displaySpecDuration: true}));
+}
 
 };
