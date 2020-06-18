@@ -54,7 +54,7 @@ var RG2Page = function() {
 		browser.get('http://localhost');
 		browser.get(url);
   	browser.manage().window().setSize(1280, 800);
- 		browser.sleep(1000);
+		 browser.sleep(1000);
     expect(browser.getTitle()).toEqual(title);
  		if (!hash) {
  			expect(element(by.id('rg2-event-list')).isDisplayed()).toBe(true);
@@ -86,7 +86,7 @@ var RG2Page = function() {
 	
 	this.getEvent = function(id) {
     this.showEventsTab();
-    this.body.element(by.id(id)).click();
+    this.body.element(by.id("event-" + id)).click();
     browser.sleep(1000);
 	};
 

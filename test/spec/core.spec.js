@@ -8,9 +8,8 @@ describe('RG2', function() {
   var cbxShowScoreCourse = element.all(by.css('.showscorecourse'));
 
   it('should load RG2', function() {
-  	rg2.loadRG2('', 'Routegadget 2');
+    rg2.loadRG2('', 'Routegadget 2');
   });
-
   it('should show and hide the about dialog with no event selected', function() {
     rg2.showAboutDialog();
     expect(element(by.id('rg2-about-dialog')).getText()).toContain('Routegadget 2 (RG2)');

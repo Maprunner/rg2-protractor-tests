@@ -8,10 +8,11 @@
   // Location of directory where Routegadget is installed.
   // This should have /cgi-bin, /kartat and /rg2 sub-directories.
   // Example define('RG_BASE_DIRECTORY', 'http://www.happyherts.routegadget.co.uk');
-  define('RG_BASE_DIRECTORY', 'http://www.happyherts.routegadget.co.uk');
-
+  define('RG_BASE_DIRECTORY', '//localhost/rg2-protractor-tests/instrumented');
+  define('OVERRIDE_KARTAT_DIRECTORY', '../kartat/');
+  
   // location of Splitsbrowser files if required: see Wiki for details of how to install Splitsbrowser
-  define('SPLITSBROWSER_DIRECTORY', 'http://www.routegadget.co.uk/splitsbrowser');
+  define('SPLITSBROWSER_DIRECTORY', 'https://www.routegadget.co.uk/splitsbrowser');
   
   // default language if not English: this is overridden if the query includes a language (e.g. ?lang=fi)
   // requires a dictionary file xx.js in the lang directory
