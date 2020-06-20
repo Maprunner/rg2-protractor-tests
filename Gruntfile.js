@@ -10,31 +10,22 @@ module.exports = function(grunt) {
     '../rg2/js/lib/proj4js-compressed.js', '../rg2/html/*.html', '../rg2/css/*.css', '../rg2/lang/*.js', '../rg2/img/*.*', '../rg2/app/*.php'];
   
   var kartatFiles = ['kisat.txt',
-  										'kartat.txt',
-  										'*_172.txt', '181.jpg',
-  										'*_168.txt', '177.jpg',
-  										'*_157.txt', '165.jpg',
-  										'*_155.txt', '163.jpg',
-  										'*_153.txt', '161.jpg',
-                      '*_132.txt', '129.jpg',
-  										'*_128.txt', '125.jpg',
-  										'*_143.txt', '140.jpg',
-  										'*_110.txt', '111.jpg',
-  										'rg2userinfo.txt',
-  										];
+  'kartat.txt', '*_172.txt', '181.jpg', '*_168.txt', '177.jpg', '*_157.txt', '165.jpg',
+  '*_155.txt', '163.jpg', '*_153.txt', '161.jpg', '*_132.txt', '129.jpg', '*_128.txt', '125.jpg',
+  '*_143.txt', '140.jpg', '*_110.txt', '111.jpg', 'rg2userinfo.txt'];
   
   // Project configuration.
   grunt.initConfig({
     pkg : grunt.file.readJSON('package.json'),
 
    clean: {
-			tests: [
-			'test/coverage', 
-			'kartat'],
-			instrumented: [
-        'instrumented/*.php',
-			'instrumented/*.js']
-		},
+	tests: [
+	  'test/coverage', 
+	  'instrumented/kartat'],
+	instrumented: [
+      'instrumented/*.php',
+	  'instrumented/*.js']
+	},
 
     connect: {
       server : {

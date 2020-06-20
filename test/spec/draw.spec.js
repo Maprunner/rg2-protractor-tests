@@ -1,7 +1,9 @@
+const { browser } = require('protractor');
+
 describe('RG2 draw', function() {
-	var rg2 = require('../page/rg2.page.js');
-	var draw = require('../page/draw.page.js');
-	var course = require('../page/draw.page.js');
+  var rg2 = require('../page/rg2.page.js');
+  var draw = require('../page/draw.page.js');
+  var course = require('../page/draw.page.js');
 
   it('should allow you to load a Hertford event with no results', function() {
     rg2.loadRG2('', 'Routegadget 2');
@@ -49,21 +51,21 @@ describe('RG2 draw', function() {
     browser.actions().mouseMove(rg2.map, {x:892, y:398}).mouseDown().mouseUp().perform();
   });
   
-   it('should allow you to save your route', function() {
+  it('should allow you to save your route', function() {
     draw.saveRoute();
-    rg2.acknowledgeWarning('Your route has been saved.');
+    rg2.acknowledgeRouteSaved();
   });
  
-	it('should load a Mardley event and show the draw tab', function() {
- 		rg2.loadRG2('#157', 'SEOA Middle Champs: Mardley Heath 2014-04-27');
+  it('should load a Mardley event and show the draw tab', function() {
+    rg2.loadRG2('#157', 'SEOA Middle Champs: Mardley Heath 2014-04-27');
     rg2.checkTitle('SEOA Middle Champs: Mardley Heath 2014-04-27');
     draw.showDrawTab();
   });
 
   it('should warn you to select a course', function() {
     browser.actions().click(rg2.map, {x:0, y:0}).perform();
-		//warning: no name/course selected
-		rg2.acknowledgeWarning('Please select course');
+  //warning: no name/course selected
+  rg2.acknowledgeWarning('Please select course');
   });
 
   it('should allow you to select a course', function() {
@@ -84,23 +86,23 @@ describe('RG2 draw', function() {
     browser.actions().mouseMove(rg2.map, {x:200, y:200}).mouseDown().mouseUp().perform();
     draw.waitThreeSeconds();
     browser.actions().mouseMove(rg2.map, {x:300, y:300}).mouseDown().mouseUp().perform();
-		draw.undo();
+    draw.undo();
     
   });
 
   it('should allow you to change course', function() {
     // change course
     draw.courses.get(2).click();
-	  // warning: changing course
-		draw.cancelCourseChange();
+    // warning: changing course
+    draw.cancelCourseChange();
     // change course
     draw.courses.get(3).click();
-	  // warning: changing course
-		draw.doCourseChange();
+    // warning: changing course
+    draw.doCourseChange();
   });
 
-	it('should allow you to load a Verulamium score course', function() {
- 		rg2.getEvent('103');
+  it('should allow you to load a Verulamium score course', function() {
+     rg2.getEvent('103');
     rg2.checkTitle('Verulamium HH Night Champs; Score 2013-01-05');
     draw.showDrawTab();
   });
@@ -125,8 +127,8 @@ describe('RG2 draw', function() {
   });
 
   it('should allow you to reset everything', function() {
-		draw.resetDrawingCancel();
-		draw.resetDrawing();
+    draw.resetDrawingCancel();
+    draw.resetDrawing();
   });
 
 });

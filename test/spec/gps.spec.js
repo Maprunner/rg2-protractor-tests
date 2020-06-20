@@ -1,6 +1,6 @@
 describe('RG2 GPS', function() {
-	var rg2 = require('../page/rg2.page.js');
-	var draw = require('../page/draw.page.js');
+  var rg2 = require('../page/rg2.page.js');
+  var draw = require('../page/draw.page.js');
   var result = require('../page/result.page.js');
   var cbxAllCourseTracks = element.all(by.css('.allcoursetracks'));  
   // dodgy maths alert: mousex = (x + 646) / 1.76, mousey = y/1.76
@@ -13,8 +13,8 @@ describe('RG2 GPS', function() {
   // handle 2 on the track at 615, 146
   var h2 = {x:716, y:83};
   
-	it('should allow you to show the draw tab', function() {
-   	rg2.loadRG2('#143', 'Verulamium Saturday League 2013-10-05');
+  it('should allow you to show the draw tab', function() {
+     rg2.loadRG2('#143', 'Verulamium Saturday League 2013-10-05');
     rg2.checkTitle('Verulamium Saturday League 2013-10-05');
     draw.showDrawTab();
   });
@@ -25,23 +25,18 @@ describe('RG2 GPS', function() {
     draw.addComment('Protractor test comment');
   });
 
-  it('should warn about a missing file', function() {
-	  draw.loadGPSFile(rg2.dir + '/test/data/verulamium.abc');
-		rg2.acknowledgeWarning("Unable to open GPS file");
-  });
-
   it('should warn about an invalid file', function() {
     draw.loadGPSFile(rg2.dir + '/test/data/invalid.gpx');
-		rg2.acknowledgeWarning("File is not valid XML");
+    rg2.acknowledgeWarning("File is not valid XML");
   });
 
   it('should warn about wrong file type', function() {
-	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.csv');
-		rg2.acknowledgeWarning("File type not recognised");
+    draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.csv');
+    rg2.acknowledgeWarning("File type not recognised");
   });
 
   it('should allow you to upload a GPX file to a non-georeferenced Verulamium map', function() {
-	  draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
+    draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
   });
 
   it('should allow you to drag the track', function() {
@@ -162,30 +157,30 @@ describe('RG2 GPS', function() {
   });
 
   it('should allow you to adjust the GPX route', function() {
-	  browser.actions().dragAndDrop(rg2.map, {x: 20, y: 25}).perform();
-	  draw.undoGPSAdjust();
-	  browser.actions().dragAndDrop(rg2.map, {x: 10, y: 20}).perform();
+    browser.actions().dragAndDrop(rg2.map, {x: 20, y: 25}).perform();
     draw.undoGPSAdjust();
-	  draw.lockBackground();
-	  browser.actions().dragAndDrop(rg2.map, {x: 30, y: 20}).perform();
-	});
+    browser.actions().dragAndDrop(rg2.map, {x: 10, y: 20}).perform();
+    draw.undoGPSAdjust();
+    draw.lockBackground();
+    browser.actions().dragAndDrop(rg2.map, {x: 30, y: 20}).perform();
+  });
   
   it('should save the GPX route', function() {
-	  draw.saveGPSRoute();
-		rg2.acknowledgeWarning("Your route has been saved.");
+    draw.saveGPSRoute();
+    rg2.acknowledgeRouteSaved();
   });
 
   it('should allow you to add a second GPS result for the same person', function() {
     draw.courses.get(1).click();
     draw.names.get(2).click();
     draw.addComment('Second GPS result test');
-	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.gpx');
-	  draw.saveGPSRoute();
-		rg2.acknowledgeWarning("Your route has been saved.");
+    draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.gpx');
+    draw.saveGPSRoute();
+    rg2.acknowledgeRouteSaved();
   });
 
   it('should allow you to load a georeferenced Ellenbrook event', function() {
- 		rg2.getEvent('158');
+     rg2.getEvent('158');
     rg2.showAboutDialog();
     expect(element(by.id('rg2-event-stats')).getText()).toContain(' Ellenbrook Saturday League: 2014-09-06');
     rg2.hideAboutDialog();
@@ -196,25 +191,24 @@ describe('RG2 GPS', function() {
     draw.courses.get(1).click();
     draw.names.get(1).click();
     draw.addComment('Protractor test comment');
-	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.tcx');
+    draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.tcx');
   });
   
   it('should allow you to autofit the route', function() {
-	  draw.autofit();
+    draw.autofit();
   });
   
   it('should allow you to adjust the autofit offset', function() {
     draw.adjustOffset(10);
-	  draw.adjustOffset('+');
+    draw.adjustOffset('+');
     draw.adjustOffset(0);
     draw.adjustOffset('-');
     draw.adjustOffset('+');
   });
   
   it('should allow you to save the adjusted route', function() {
-	  draw.saveGPSRoute();
-    browser.sleep(2000);
-		rg2.acknowledgeWarning("Your route has been saved");
+    draw.saveGPSRoute();
+    rg2.acknowledgeRouteSaved();
   });
   
   it('should warn you if the GPX file does not match the map location', function() {
@@ -228,14 +222,14 @@ describe('RG2 GPS', function() {
     draw.addComment('Protractor test comment');
     browser.sleep(2000);
 
-	  draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
+    draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
     browser.sleep(2000);
 
-		rg2.acknowledgeWarning("Your GPS file does not match the map");
+    rg2.acknowledgeWarning("Your GPS file does not match the map");
   });
   
-	it('should allow you to load a Hertford event with no results', function() {
- 		rg2.getEvent('141');
+  it('should allow you to load a Hertford event with no results', function() {
+     rg2.getEvent('141');
     draw.showDrawTab();
   });
   
@@ -244,9 +238,9 @@ describe('RG2 GPS', function() {
     draw.enterName('Hertford GPS test runner');
     draw.enterTime('22:22');
     draw.addComment('GPS Hertford test');
-	  draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.tcx');
-	  draw.saveGPSRoute();
-		rg2.acknowledgeWarning("Your route has been saved");
+    draw.loadGPSFile(rg2.dir + '/test/data/ellenbrook.tcx');
+    draw.saveGPSRoute();
+    rg2.acknowledgeRouteSaved();
   });
 
   it('should allow you to display the results tab', function() {
@@ -269,7 +263,7 @@ describe('RG2 GPS', function() {
   });
 
   it('should select a Verulamium score event', function() {
-   	rg2.loadRG2('#143', 'Verulamium Saturday League 2013-10-05');
+     rg2.loadRG2('#143', 'Verulamium Saturday League 2013-10-05');
     rg2.checkTitle('Verulamium Saturday League 2013-10-05');
     draw.showDrawTab();
   });

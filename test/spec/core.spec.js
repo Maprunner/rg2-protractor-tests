@@ -1,6 +1,8 @@
+const { browser } = require('protractor');
+
 describe('RG2', function() {
-	var rg2 = require('../page/rg2.page.js');
-	var course = require('../page/course.page.js');
+  var rg2 = require('../page/rg2.page.js');
+  var course = require('../page/course.page.js');
   var result = require('../page/result.page.js');
   var cbxTrackList = element.all(by.css('.tracklist'));
   var cbxShowTrack = element.all(by.css('.showtrack'));
@@ -20,10 +22,15 @@ describe('RG2', function() {
   it('should select a Mardley Heath normal event', function() {
     rg2.getEvent('143');
     // pause to allow touch drag, pinch zoom and mouse wheel scroll manual input
-    browser.sleep(10000);
+    browser.sleep(500);
     rg2.showAboutDialog();
     expect(element(by.id('rg2-event-stats')).getText()).toContain('SEOA Middle Champs: Mardley Heath: 2014-04-27');
     rg2.hideAboutDialog();
+  });
+
+  it('should allow touch drag, pinch zoom and mouse wheel scroll manual input', function() {
+    // pause to allow user input
+    browser.sleep(5000);
   });
 
   it('should toggle controls on and off', function() {
@@ -34,7 +41,7 @@ describe('RG2', function() {
 
   it('should display and hide the info panel', function() {
     rg2.hideInfoPanel();
-		rg2.showInfoPanel();
+    rg2.showInfoPanel();
     rg2.resizeHideInfoPanel();
     rg2.resizeShowInfoPanel();
   });
@@ -96,71 +103,87 @@ describe('RG2', function() {
     expect(rg2.trackNames.isDisplayed()).toBe(false);
   });
 
-  it('should load a Highfield event and show a course and routes', function() {
-  	rg2.loadRG2('#128&course=4&route=48,74', 'Highfield Park Saturday League 2013-06-01');
-    expect(rg2.trackNames.isDisplayed()).toBe(true);
-    rg2.zoomIn();
-    rg2.zoomIn();
+  it('should allow you to display the results tab', function() {
+    result.showResultsTab();
+  });
+  
+  it('should allow you to open results for a course', function() {
+    result.openResultsList(2);
   });
 
+  it('should display stats for a runner', function() {
+    result.showStatsForRunner(2, 11);
+  });
+
+  it('should close the stats display', function() {
+    result.closeStatsForRunner();
+  });
+
+  it('should load a Highfield event and show a course and routes', function() {
+    rg2.loadRG2('#128&course=4&route=48,74', 'Highfield Park Saturday League 2013-06-01');
+    rg2.zoomIn();
+    rg2.zoomIn();
+    expect(rg2.trackNames.isDisplayed()).toBe(true);
+});
+
   it('should show the configuration dialog', function() {
-		rg2.showOptionsDialog();
+    rg2.showOptionsDialog();
   });
 
   it('should set the map intensity', function() {
-		rg2.spin('map intensity', '-');
-		rg2.spin('map intensity', '+');
-		rg2.spin('map intensity', 0);
-		rg2.spin('map intensity', 100);
+    rg2.spin('map intensity', '-');
+    rg2.spin('map intensity', '+');
+    rg2.spin('map intensity', 0);
+    rg2.spin('map intensity', 100);
   });
 
   it('should set the route intensity', function() {
-		rg2.spin('route intensity', '-');
-		rg2.spin('route intensity', '+');
-		rg2.spin('route intensity', 0);
-		rg2.spin('route intensity', 100);
+    rg2.spin('route intensity', '-');
+    rg2.spin('route intensity', '+');
+    rg2.spin('route intensity', 0);
+    rg2.spin('route intensity', 100);
   });
 
   it('should set the route width', function() {
-		rg2.spin('route width', '-');
-		rg2.spin('route width', '+');
-		rg2.spin('route width', 1);
-		rg2.spin('route width', 10);
+    rg2.spin('route width', '-');
+    rg2.spin('route width', '+');
+    rg2.spin('route width', 1);
+    rg2.spin('route width', 10);
     rg2.spin('route width', 4.5);
   });
   
   it('should set the font size', function() {
-		rg2.spin('font', '-');
-		rg2.spin('font', '+');
-		rg2.spin('font', 5);
-		rg2.spin('font', 30);
+    rg2.spin('font', '-');
+    rg2.spin('font', '+');
+    rg2.spin('font', 5);
+    rg2.spin('font', 30);
     rg2.spin('font', 13);
   });
   
   it('should set the course width', function() {
-		rg2.spin('course width', '-');
-		rg2.spin('course width', '+');
-		rg2.spin('course width', 1);
-		rg2.spin('course width', 10);
+    rg2.spin('course width', '-');
+    rg2.spin('course width', '+');
+    rg2.spin('course width', 1);
+    rg2.spin('course width', 10);
     rg2.spin('course width', 3.5);
   });
 
   it('should set the control size', function() {
-		rg2.spin('control size', '-');
-		rg2.spin('control size', '+');
-		rg2.spin('control size', 3);
-		rg2.spin('control size', 50);
+    rg2.spin('control size', '-');
+    rg2.spin('control size', '+');
+    rg2.spin('control size', 3);
+    rg2.spin('control size', 50);
     rg2.spin('control size', 21);
   });
     
     
   it('should toggle other options', function() {
-		rg2.showGPSSpeed();
-		rg2.showThreeSeconds();
-		rg2.snap();
-		rg2.showGPSSpeed();
-		rg2.showThreeSeconds();
-		rg2.snap();
+    rg2.showGPSSpeed();
+    rg2.showThreeSeconds();
+    rg2.snap();
+    rg2.showGPSSpeed();
+    rg2.showThreeSeconds();
+    rg2.snap();
   });
 
   it('should change language', function() {
@@ -180,25 +203,25 @@ describe('RG2', function() {
   });
 
   it('should hide the configuration dialog', function() {
-		rg2.hideOptionsDialog();
+    rg2.hideOptionsDialog();
   });
 
   it('should allow the window to be resized', function() {
-  	rg2.checkTitle('Highfield Park Saturday League 2013-06-01');
-  	browser.manage().window().setSize(750, 500);
+    rg2.checkTitle('Highfield Park Saturday League 2013-06-01');
+    browser.manage().window().setSize(750, 500);
     rg2.hideInfoPanel();
     rg2.showInfoPanel();
     rg2.resizeHideInfoPanel();
     rg2.resizeShowInfoPanel();
- 		rg2.checkTitle('Highfield Park Saturday League');
- 		browser.manage().window().setSize(480, 360);
-  	rg2.checkTitle('');
+     rg2.checkTitle('Highfield Park Saturday League');
+     browser.manage().window().setSize(480, 360);
+    rg2.checkTitle('');
     rg2.hideInfoPanel();
     rg2.showInfoPanel();
     rg2.resizeHideInfoPanel();
     rg2.resizeShowInfoPanel();
-  	browser.manage().window().setSize(1024, 768);
-  	rg2.checkTitle('Highfield Park Saturday League 2013-06-01');
+    browser.manage().window().setSize(1024, 768);
+    rg2.checkTitle('Highfield Park Saturday League 2013-06-01');
     rg2.hideInfoPanel();
     rg2.showInfoPanel();
     rg2.resizeHideInfoPanel();
@@ -222,9 +245,12 @@ describe('RG2', function() {
     rg2.hideOptionsDialog();
   });
 
-  it('should select a Trent Park score event and warn about 0% map intensity', function() {
+  it('should select a Trent Park score event', function() {
     rg2.loadRG2('#153', 'Boxing Day Score: Trent Park 2013-12-26');
-    rg2.acknowledgeWarning('Your saved settings have 0% map intensity so the map is invisible.');
+  });
+
+  it('should warn about 0% map intensity', function() {
+    rg2.acknowledgeWarning('0% map intensity');
     rg2.showOptionsDialog();
     rg2.spin('map intensity', 100);
     rg2.hideOptionsDialog();

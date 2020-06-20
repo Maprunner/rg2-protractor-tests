@@ -12,6 +12,8 @@ describe('RG2 Manager 1', function() {
   // 730, 700: correct control 193
   var h4 = {x:648, y:269};
 
+  describe("The manager login page", function (){
+
   it('should show the login screen', function() {
     manager.startManager();
   });
@@ -19,21 +21,24 @@ describe('RG2 Manager 1', function() {
   it('should reject invalid user names and passwords', function() {
     manager.login('', '');
     // no user name or password: error reported
-    rg2.acknowledgeWarning();
+    rg2.acknowledgeWarning("Please enter user name");
 
     // user name too short: error reported
     manager.login('abc', '');
-    rg2.acknowledgeWarning();
+    rg2.acknowledgeWarning("Please enter user name");
 
     // password too short: error reported
     manager.login('hhhhh', 'xyz');
-    rg2.acknowledgeWarning();
+    rg2.acknowledgeWarning("at least five characters");
 
   });
 
   it('should allow a valid login', function() {
     manager.login();
   });
+  });
+
+  describe("The logged in manager page", function (){
 
   it('should show the map tab', function() {
     manager.showMapTab();
@@ -48,9 +53,9 @@ describe('RG2 Manager 1', function() {
     element(by.id('rg2-map-name')).clear().sendKeys('');
   });
 
-  it('should accept a map name again', function() {
+  it('should report a map file trype error', function() {
     element(by.id('rg2-map-name')).clear().sendKeys('Ellenbrook protractor test map non-georef');
-    element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.xml');
+    element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV1courses.xml');
     // invalid file type: error reported
     rg2.acknowledgeWarning('Only .jpg and .gif files are supported at present.');
   });
@@ -85,7 +90,7 @@ describe('RG2 Manager 1', function() {
 
   it('should report date validation errors', function() {
     manager.enterClubName('HH');
-    manager.createEvent("Event date is not valid");
+    manager.createEvent("Date is not valid");
   });
 
   it('should report event level validation errors', function() {
@@ -107,7 +112,7 @@ describe('RG2 Manager 1', function() {
   });
 
   it('should report results file validation errors', function() {
-    element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/highfield.jpg');
+    element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jpg');
     // invalid file type: error reported
     rg2.acknowledgeWarning("Results file type is not recognised");
     element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.csv');
@@ -116,7 +121,7 @@ describe('RG2 Manager 1', function() {
   });
 
   it('should report invalid course file type', function() {
-    element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/highfield.jpg');
+    element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jpg');
     // invalid file type: error reported
     rg2.acknowledgeWarning("File is not a valid XML course file");
   });
@@ -164,4 +169,6 @@ describe('RG2 Manager 1', function() {
     manager.createEvent();
     rg2.acknowledgeWarning('Event 1-01: Ellenbrook has been added with id');
   });
+});
+
 });

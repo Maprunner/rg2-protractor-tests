@@ -4,7 +4,7 @@ describe('RG2 replay', function() {
 	var course = require('../page/course.page.js');
 	var replay = require('../page/replay.page.js');
   var trackNames = element(by.id('rg2-track-names'));
-
+  var wait = 1000
   it('should select a Trent Park score event with a georeferenced map', function() {
     // invalid hash so just display event list
     rg2.loadRG2('#x', 'Routegadget 2');
@@ -19,19 +19,25 @@ describe('RG2 replay', function() {
 
   it('should hide the course for a score event', function() {
     course.hideCourse(0);
+    browser.sleep(wait);
   });
 
   it('should show and hide all courses for a score event', function() {
     course.showAllCourses();
+    browser.sleep(wait);
     course.hideAllCourses();
+    browser.sleep(wait);
   });
 
   it('should show an individual course for a score event', function() {
-  	result.showResultsTab();
+    result.showResultsTab();
+    browser.sleep(wait);
   	// open result accordion
     result.list.first().click();
+    browser.sleep(wait);
     // select runner
     result.showScoreCourse.first().click();
+    browser.sleep(wait);
   });
 
   it('should allow replay for a score event', function() {

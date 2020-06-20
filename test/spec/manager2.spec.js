@@ -1,23 +1,27 @@
 describe('RG2 Manager 2', function() {
-	var rg2 = require('../page/rg2.page.js');
-	var manager = require('../page/manager.page.js');
   
-  it('should reject an invalid password', function() {
- 		manager.startManager();
-	  // wrong password: error reported
- 		manager.login('hhhhh', '12345');
-		rg2.acknowledgeWarning("Login failed");
-	 	});
+  var rg2 = require('../page/rg2.page.js');
+  var manager = require('../page/manager.page.js');
 
-  it('should allow you to log on as manager', function() {
- 		manager.login();
+  it('should show the login screen', function() {
+    manager.startManager();
   });
 
-	it('should load a map and world file', function() {
-		manager.showMapTab();
-	  element(by.id('rg2-map-name')).clear().sendKeys('Ellenbrook protractor test map georef');
-	  element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jpg');
-	  element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/ellenbrookinvalid.jgw');
+  it('should reject an invalid password', function() {
+    // wrong password: error reported
+    manager.login('hhhhh', 'notvalid');
+    rg2.acknowledgeWarning("Login failed");
+  });
+
+  it('should allow you to log on as manager', function() {
+     manager.login();
+  });
+
+  it('should load a map and world file', function() {
+    manager.showMapTab();
+    element(by.id('rg2-map-name')).clear().sendKeys('Ellenbrook protractor test map georef');
+    element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jpg');
+    element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/ellenbrookinvalid.jgw');
   });
   
   it('should let you change the georeferencing method', function() {
@@ -31,10 +35,10 @@ describe('RG2 Manager 2', function() {
   });
 
   it('should upload a georeferenced map', function() {
-	  element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jgw');
-	  manager.addMap();
-		rg2.acknowledgeWarning("has been added");
-	});
+    element(by.id('rg2-load-georef-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jgw');
+    manager.addMap();
+    rg2.acknowledgeWarning("has been added");
+  });
 
   it('should warn if the course file does not match map georeference', function() {
     manager.showCreateTab();
@@ -49,27 +53,27 @@ describe('RG2 Manager 2', function() {
     manager.acknowledgeCourseInfo();
   });
 
-	it('should accept IOF V3 Condes georef courses', function() {
-	  element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV3courses.xml');
-		manager.acknowledgeCourseInfo();
+  it('should accept IOF V3 Condes georef courses', function() {
+    element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV3courses.xml');
+    manager.acknowledgeCourseInfo();
   });
 
   it('should accept a spklasse results file', function() {
-	  // missing data: error reported
+    // missing data: error reported
     manager.createEvent("No results information");
-		// read spklasse results
-	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/spklasse.csv');
-	  manager.acknowledgeResultInfo();
+    // read spklasse results
+    element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/spklasse.csv');
+    manager.acknowledgeResultInfo();
   });
 
   it('should create Event 2-01: CSV results: IOF V3 Condes courses: georef', function() {
-		// change to SI csv results
-	  element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.csv');
-	  manager.acknowledgeResultInfo();
+    // change to SI csv results
+    element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.csv');
+    manager.acknowledgeResultInfo();
     manager.enterLevel(3);
-		manager.createEvent();
-		rg2.acknowledgeWarning('has been added');
-	});
+    manager.createEvent();
+    rg2.acknowledgeWarning('has been added');
+  });
 
   it('should accept IOF V2 georef courses', function() {
     manager.showCreateTab();
