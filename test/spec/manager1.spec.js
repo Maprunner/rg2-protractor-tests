@@ -1,3 +1,5 @@
+const { browser } = require('protractor');
+
 describe('RG2 Manager 1', function() {
   var rg2 = require('../page/rg2.page.js');
   var manager = require('../page/manager.page.js');
@@ -53,7 +55,7 @@ describe('RG2 Manager 1', function() {
     element(by.id('rg2-map-name')).clear().sendKeys('');
   });
 
-  it('should report a map file trype error', function() {
+  it('should report a map file type error', function() {
     element(by.id('rg2-map-name')).clear().sendKeys('Ellenbrook protractor test map non-georef');
     element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV1courses.xml');
     // invalid file type: error reported
@@ -62,7 +64,7 @@ describe('RG2 Manager 1', function() {
 
   it('should allow upload to be cancelled', function() {
     element(by.id('rg2-load-map-file')).sendKeys(rg2.dir + '/test/data/ellenbrook.jpg');
-    manager.addMapCancel();
+    manager.cancelAddMap();
   });
 
   it('should upload a non-georeferenced map', function() {
@@ -167,7 +169,6 @@ describe('RG2 Manager 1', function() {
   it('should create Event 1-01: CSV results: IOF V2 courses: map not georef', function() {
     manager.createEventCancel();
     manager.createEvent();
-    rg2.acknowledgeWarning('Event 1-01: Ellenbrook has been added with id');
   });
 });
 

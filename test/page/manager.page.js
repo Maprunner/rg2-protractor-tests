@@ -21,13 +21,15 @@ var ManagerPage = function() {
   this.btnMoveMapAndControls = element(by.id('btn-move-map-and-controls'));
   this.btnScoreEvent = element(by.id('btn-score-event'));
   this.georefs = element(by.id('rg2-georef-selected')).all(by.css('option'));
-  
+  this.dlgWarning = element(by.css('.rg2-warning-dialog'));
+  this.eventTitle = element(by.id('rg2-event-title'));
+
   this.startManager = function() {
     // not an angular app so need this
     browser.ignoreSynchronization = true;
     browser.manage().window().setSize(1280, 800);
     browser.get('http://localhost/rg2-protractor-tests/instrumented/rg2/?manage');
-    browser.wait(EC.visibilityOf(this.loginBody), 5000);
+    browser.wait(EC.visibilityOf(this.loginBody), 10000);
     expect(this.loginBody.isDisplayed()).toBe(true);
   };
     
@@ -48,7 +50,7 @@ var ManagerPage = function() {
       expect(this.loginBody.isDisplayed()).toBe(true);
     }
   };
-  
+
   this.createEvent = function (expectedError) {
     this.btnCreateEvent.click();
     if (expectedError) {
@@ -56,12 +58,16 @@ var ManagerPage = function() {
     } else {
       browser.wait(EC.visibilityOf(this.dlgConfirmCreateEvent), 5000);
       this.dlgConfirmCreateEvent.element(by.buttonText('Create event')).click();
+      // normally leaves us in the new event in a new tab so need to go to previous tab
+      // but testing with pop-ups blocked means you might not get the new tab
+      var warning = EC.visibilityOf(this.dlgWarning);
+      var newEvent = EC.not(EC.titleContains("Routegadget"));
+      browser.wait(EC.or(warning, newEvent), 10000);
+      browser.getAllWindowHandles().then(function (handles) {
+        // switch back to manager window if we ended up in the new event
+        browser.switchTo().window(handles[0]);
+      });
       rg2.acknowledgeWarning("has been added")
-    //  testing with pop-ups blocked means you don't get the new tab
-    //   // leaves us in the new event in a new tab so need to go to previous tab
-    //   browser.getAllWindowHandles().then(function (handles) {
-    //     browser.switchTo().window(handles[0]);
-    //   });
     }
    };
 
@@ -69,7 +75,6 @@ var ManagerPage = function() {
     this.btnAddMap.click();
     browser.wait(EC.visibilityOf(this.dlgConfirmAddMap), 5000);
     this.dlgConfirmAddMap.element(by.buttonText('Add map')).click();
-    browser.wait(EC.visibilityOf(this.dlgConfirmCreateEvent), 5000);
   };
   
   this.createEventCancel = function () {
@@ -92,8 +97,9 @@ var ManagerPage = function() {
     element(by.id('rg2-club-name')).clear().sendKeys(name).sendKeys(protractor.Key.ENTER);
   };
 
-  this.addMapCancel = function () {
+  this.cancelAddMap = function () {
     this.btnAddMap.click();
+    browser.wait(EC.visibilityOf(this.dlgConfirmAddMap), 5000);
     this.dlgConfirmAddMap.element(by.buttonText('Cancel')).click();
   };
   

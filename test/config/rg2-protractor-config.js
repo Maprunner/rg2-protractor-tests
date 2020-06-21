@@ -45,17 +45,17 @@ allScriptsTimeout: 30000,
 //
 // Spec patterns are relative to the location of this config.
 specs: [
-    'test/spec/*.spec.js'
-	//'test/spec/core.spec.js'
-	//'test/spec/draw.spec.js',
-	//'test/spec/gps.spec.js'
-	//'test/spec/manager1.spec.js'
-	//'test/spec/manager2.spec.js'
-	//'test/spec/manager3.spec.js',
-    //'test/spec/manager4.spec.js',
-	//'test/spec/manager5.spec.js',
-	//'test/spec/manageredit.spec.js',
-	//'test/spec/replay.spec.js'
+  //'test/spec/*.spec.js'
+  //'test/spec/core.spec.js'
+  //'test/spec/draw.spec.js',
+  //'test/spec/gps.spec.js'
+  //'test/spec/manager1.spec.js'
+  //'test/spec/manager2.spec.js'
+  //'test/spec/manager3.spec.js',
+  //'test/spec/manager4.spec.js',
+  //'test/spec/manager5.spec.js',
+  //'test/spec/manageredit.spec.js',
+  //'test/spec/replay.spec.js'
 ],
 exclude: [],
 // ----- Capabilities to be passed to the webdriver instance ----
@@ -71,10 +71,10 @@ capabilities: {
 },
 
 jasmineNodeOpts: {
-	isVerbose: true,
-	showColors: true,
+  isVerbose: true,
+  showColors: true,
   includeStackTrace: false
-	},
+  },
 
 maxSessions: 1,
 

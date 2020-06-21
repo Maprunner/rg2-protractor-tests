@@ -78,12 +78,10 @@ var DrawPage = function() {
 
   this.saveRoute = function () {
     this.btnSaveRoute.click();
-    browser.sleep(1000);
   };
   
   this.saveGPSRoute = function () {
     this.btnSaveGPSRoute.click();
-    browser.sleep(1000);
   };
   
   this.waitThreeSeconds = function () {

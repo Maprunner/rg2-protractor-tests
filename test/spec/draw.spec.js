@@ -102,7 +102,7 @@ describe('RG2 draw', function() {
   });
 
   it('should allow you to load a Verulamium score course', function() {
-     rg2.getEvent('103');
+    rg2.getEvent('103');
     rg2.checkTitle('Verulamium HH Night Champs; Score 2013-01-05');
     draw.showDrawTab();
   });

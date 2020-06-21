@@ -180,7 +180,7 @@ describe('RG2 GPS', function() {
   });
 
   it('should allow you to load a georeferenced Ellenbrook event', function() {
-     rg2.getEvent('158');
+    rg2.getEvent('158');
     rg2.showAboutDialog();
     expect(element(by.id('rg2-event-stats')).getText()).toContain(' Ellenbrook Saturday League: 2014-09-06');
     rg2.hideAboutDialog();
@@ -214,17 +214,9 @@ describe('RG2 GPS', function() {
   it('should warn you if the GPX file does not match the map location', function() {
     browser.sleep(1000);
     draw.courses.get(2).click();
-    browser.sleep(1000);
-
     draw.names.get(6).click();
-    browser.sleep(1000);
-
     draw.addComment('Protractor test comment');
-    browser.sleep(2000);
-
     draw.loadGPSFile(rg2.dir + '/test/data/verulamium.gpx');
-    browser.sleep(2000);
-
     rg2.acknowledgeWarning("Your GPS file does not match the map");
   });
   

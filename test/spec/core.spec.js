@@ -21,8 +21,6 @@ describe('RG2', function() {
 
   it('should select a Mardley Heath normal event', function() {
     rg2.getEvent('143');
-    // pause to allow touch drag, pinch zoom and mouse wheel scroll manual input
-    browser.sleep(500);
     rg2.showAboutDialog();
     expect(element(by.id('rg2-event-stats')).getText()).toContain('SEOA Middle Champs: Mardley Heath: 2014-04-27');
     rg2.hideAboutDialog();

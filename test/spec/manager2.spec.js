@@ -1,3 +1,5 @@
+const { browser } = require('protractor');
+
 describe('RG2 Manager 2', function() {
   
   var rg2 = require('../page/rg2.page.js');
@@ -72,7 +74,6 @@ describe('RG2 Manager 2', function() {
     manager.acknowledgeResultInfo();
     manager.enterLevel(3);
     manager.createEvent();
-    rg2.acknowledgeWarning('has been added');
   });
 
   it('should accept IOF V2 georef courses', function() {
@@ -88,7 +89,6 @@ describe('RG2 Manager 2', function() {
     element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/miltonriggIOFV2results.xml');
     manager.acknowledgeResultInfo();
     manager.createEvent();
-    rg2.acknowledgeWarning('has been added');
   });
 
   it('should accept IOF V3 OCAD georef courses', function() {
@@ -100,10 +100,10 @@ describe('RG2 Manager 2', function() {
     manager.enterLevel(2);
     element(by.id('rg2-event-comments')).clear().sendKeys('Comments (optional)');
     element(by.id('rg2-load-course-file')).sendKeys(rg2.dir + '/test/data/ellenbrookIOFV3OCADcourses.xml');
+    browser.sleep(10000)
     manager.acknowledgeCourseInfo();
     element(by.id('rg2-load-results-file')).sendKeys(rg2.dir + '/test/data/ellenbrook-missing-headers.csv');
     manager.acknowledgeResultInfo();
     manager.createEvent();
-    rg2.acknowledgeWarning('has been added');
   });
 });
