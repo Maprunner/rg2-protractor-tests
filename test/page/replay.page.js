@@ -1,5 +1,6 @@
 var ReplayPage = function() {
   var rg2 = require('../page/rg2.page.js');
+  var EC = protractor.ExpectedConditions;
   this.animationControls = element(by.id('rg2-animation-controls'));
   this.optionControls = element(by.id('rg2-option-controls'));
   
@@ -22,17 +23,17 @@ var ReplayPage = function() {
   this.cbxShowReplay = element.all(by.css('.showreplay'));
   this.cbxAllCourseReplay = element.all(by.css('.allcoursereplay'));
   this.cbxAllCourseTracks = element.all(by.css('.allcoursetracks'));  
-
+  this.cbxAllCourseTracksReplay = element.all(by.css('.allcoursetracksreplay')); 
     
-	this.start = function() {
+  this.start = function() {
     expect(rg2.hasClass(this.btnStartStop, 'fa-pause')).toBe(false);
     expect(rg2.hasClass(this.btnStartStop, 'fa-play')).toBe(true);
     this.btnStartStop.click();
     expect(rg2.hasClass(this.btnStartStop, 'fa-pause')).toBe(true);
     expect(rg2.hasClass(this.btnStartStop, 'fa-play')).toBe(false);
   };
-	
-	this.stop = function() {
+  
+  this.stop = function() {
     expect(rg2.hasClass(this.btnStartStop, 'fa-pause')).toBe(true);
     expect(rg2.hasClass(this.btnStartStop, 'fa-play')).toBe(false);
     this.btnStartStop.click();
@@ -54,18 +55,6 @@ var ReplayPage = function() {
     this.btnRealTime.click();
     expect(rg2.hasClass(this.btnRealTime, 'fa-users')).toBe(true);
     expect(rg2.hasClass(this.btnRealTime, 'fa-clock-o')).toBe(false);
-  };
-
-  this.selectFirstRunner = function (id) {
-    expect(this.animationControls.isDisplayed()).toBe(false);
-    this.cbxShowReplay.get(id).click();
-    expect(this.animationControls.isDisplayed()).toBe(true);
-  };
-  
-  this.selectAnotherRunner = function (id) {
-    expect(this.animationControls.isDisplayed()).toBe(true);
-    this.cbxShowReplay.get(id).click();
-    expect(this.animationControls.isDisplayed()).toBe(true);
   };
 
   this.removeRunner = function (id) {

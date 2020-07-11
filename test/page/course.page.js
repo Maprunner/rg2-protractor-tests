@@ -1,5 +1,5 @@
 var CoursePage = function() {
-
+  var EC = protractor.ExpectedConditions;
   this.body = element(by.id('rg2-course-list'));
   this.coursesTab = element(by.id('rg2-courses-tab'));
   this.list = element.all(by.css('.courselist'));
@@ -7,6 +7,7 @@ var CoursePage = function() {
     
   this.showCoursesTab = function() {
     this.coursesTab.click();
+    browser.wait(EC.visibilityOf(this.body), 2000);
     expect(this.body.isDisplayed()).toBe(true);
   };
   

@@ -55,7 +55,7 @@ specs: [
   //'test/spec/manager4.spec.js',
   //'test/spec/manager5.spec.js',
   //'test/spec/manageredit.spec.js',
-  //'test/spec/replay.spec.js'
+  'test/spec/replay.spec.js'
 ],
 exclude: [],
 // ----- Capabilities to be passed to the webdriver instance ----

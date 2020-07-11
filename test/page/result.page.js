@@ -1,4 +1,5 @@
 const { browser, element } = require("protractor");
+const { threeSeconds } = require("./rg2.page");
 
 var ResultPage = function() {
   var EC = protractor.ExpectedConditions;
@@ -12,6 +13,7 @@ var ResultPage = function() {
     
   this.showResultsTab = function() {
     this.resultsTab.click();
+    browser.wait(EC.visibilityOf(this.body), 2000);
     expect(this.body.isDisplayed()).toBe(true);
   };
   
@@ -20,11 +22,24 @@ var ResultPage = function() {
     // click on course for requested results
     this.courselist.get(index).click();
     // if they are not displayed then we have just closed the list so click again
-    browser.wait(EC.visibilityOf(table), 5000);
     if (!table.isDisplayed()) {
       this.courselist.get(index).click();
     }
+    browser.wait(EC.visibilityOf(table), 2000)
     expect(table.isDisplayed()).toBe(true);
+  };
+
+  this.toggleTrackForRunner = function(course, runner) {
+    browser.sleep(500);
+    element(by.id('table-' + (course + 1))).all(by.css('.showtrack')).get(runner).click();
+  };
+
+  this.toggleReplayCourseForRunner = function(course, runner) {
+    element(by.id('table-' + (course + 1))).all(by.css('.showreplay')).get(runner).click();
+  };
+
+  this.showScoreCourseForRunner = function(course, runner) {
+    element(by.id('table-' + (course + 1))).all(by.css('.showscorecourse')).get(runner).click();
   };
 
   this.showStatsForRunner = function(course, runner) {
