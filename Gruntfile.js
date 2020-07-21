@@ -72,6 +72,18 @@ module.exports = function(grunt) {
         updateAndDelete: false
         // expand: true,
         // flatten: true
+      },
+      formatkartat : {
+        files: [{
+          cwd: 'test/formatkartat',
+          src : "*.*",
+          dest : 'instrumented/kartat/'
+        }],verbose: true,
+        pretend: false, // Don't do any disk operations - just write log. Default: false
+        failOnError: true, // Fail the task when copying is not possible. Default: false
+        updateAndDelete: false
+        // expand: true,
+        // flatten: true
       }
     },
 
@@ -112,8 +124,13 @@ module.exports = function(grunt) {
   // Load all the grunt tasks
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('default', ['test']);
+  grunt.registerTask('default', ['formattest']);
 
   grunt.registerTask('test', ['clean:tests', 'clean:instrumented', 'instrument', 'sync:rg2Source',
     'sync:config', 'sync:kartat', 'connect', 'protractor_coverage:rg2', 'makeReport']);
+
+  grunt.registerTask('formattest', ['clean:tests', 'clean:instrumented', 'instrument', 'sync:rg2Source',
+    'sync:config', 'sync:formatkartat', 'connect', 'protractor_coverage:rg2', 'makeReport']);
+
+  grunt.registerTask('a', ['connect', 'protractor_coverage:rg2', 'makeReport']);
 };

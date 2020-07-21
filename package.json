@@ -3,8 +3,8 @@
   "description": "Routegadget 2 Test",
   "repository": "https://github.com/Maprunner/rg2-test-data",
   "devDependencies": {
-    "chromedriver": "^83.0.0",
-    "grunt": "^1.1.0",
+    "chromedriver": "^83.0.1",
+    "grunt": "^1.2.1",
     "grunt-contrib-clean": "~2.0.0",
     "grunt-contrib-connect": "~2.1.0",
     "grunt-contrib-copy": "~1.0.0",

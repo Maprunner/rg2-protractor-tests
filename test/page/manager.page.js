@@ -138,6 +138,10 @@ var ManagerPage = function() {
     this.btnScoreEvent.click();
   };
 
+  this.mapResultsToCourses = function(course) {
+    element(by.id('rg2-course-alloc')).all(by.css('option')).get(course).click();
+  };
+
 };
 
 module.exports = new ManagerPage();
